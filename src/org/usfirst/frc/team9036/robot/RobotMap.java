@@ -20,7 +20,8 @@ public class RobotMap {
 	public static final int driverFrontRightPort = 2;
 	public static final int driverRearLeftPort = 3;
 	public static final int driverRearRightPort = 4;
-	public static final int leftMotorSpeed;     //SP
+	public static int leftMotorSpeed;     //SP
+	public static int rightMotorSpeed;     //SP
 	
 	public static final double driveAutoSpeed = 0.1;
 	public static final double driveStickSpeedDelta = 0.1;
