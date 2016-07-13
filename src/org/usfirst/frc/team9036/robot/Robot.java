@@ -3,6 +3,9 @@ package org.usfirst.frc.team9036.robot;
 
 import org.usfirst.frc.team9036.robot.commands.DriveAutoCommand;
 import org.usfirst.frc.team9036.robot.subsystems.DriveSubsystem;
+import org.usfirst.frc.team9036.robot.subsystems.ballArmSubsystem;
+import org.usfirst.frc.team9036.robot.subsystems.ballCollectorSubsystem;
+import org.usfirst.frc.team9036.robot.subsystems.ballShooterSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,6 +26,7 @@ public class Robot extends IterativeRobot {
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
 	public static final ballArmSubsystem armControl = new ballArmSubsystem();
 	public static final ballCollectorSubsystem collectorControl = new ballCollectorSubsystem();
+	public static final ballShooterSubsystem shooterControl = new ballShooterSubsystem();
 	public static OI oi;
 
     Command autonomousCommand;
