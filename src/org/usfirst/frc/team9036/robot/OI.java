@@ -41,6 +41,8 @@ public class OI {
 	public VictorSP driveFrontRight = new VictorSP(RobotMap.driverFrontRightPort);
 	public VictorSP driveRearLeft = new VictorSP(RobotMap.driverRearLeftPort);
 	public VictorSP driveRearRight = new VictorSP(RobotMap.driverRearRightPort);
+	public VictorSP ballArmMotor = new VictorSP(RobotMap.motorArmPort);
+	public VictorSP ballCollectorMotor = new VictorSP(RobotMap.ballCollectorMotor);
 	
 	public RobotDrive robotDrive = new RobotDrive(driveFrontLeft, driveRearLeft, driveFrontRight, driveRearRight);
 	
