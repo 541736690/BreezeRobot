@@ -10,16 +10,22 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ballArmUp extends Command {
 	private int time;
-    public ballArmUp(int t) {
+	private boolean position;
+    public ballArmUp(int t,boolean pos) {
     	requires(Robot.armControl);
     	time = t;
+    	position = pos;   //true = Up,False = Down
         // Use requires() here to declare subsystem dependencies
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	setTimeout(time);
+    	if(position){
     	Robot.armControl.drive(Robot.oi.mainJoystick.getMagnitude() * RobotMap.motorArmSpeed);
+    	}else{
+    	Robot.armControl.drive(-Robot.oi.mainJoystick.getMagnitude() * RobotMap.motorArmSpeed);	
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
