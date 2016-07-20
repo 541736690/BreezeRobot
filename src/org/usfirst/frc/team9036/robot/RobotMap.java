@@ -16,18 +16,29 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	
-	public static final int driverFrontLeftPort = 1;
-	public static final int driverFrontRightPort = 2;
-	public static final int driverRearLeftPort = 3;
-	public static final int driverRearRightPort = 4;
-	public static int leftMotorSpeed;     //SP
-	public static int rightMotorSpeed;     //SP
-	public static final int motorArmPort = 6;
-	public static final int ballCollectorMotor = 5;
-	public static final int ballShooterMotor = 7;
-	public static int motorArmSpeed=0.5;
-	public static int motorArmSpinSpeed=0.5;
-	public static int motorShooterSpeed=1;
-	public static final double driveAutoSpeed = 0.1;
-	public static final double driveStickSpeedDelta = 0.1;
+	public static final int DriverFrontLeftPort = 1;
+	public static final int DriverFrontRightPort = 2;
+	public static final int DriverRearLeftPort = 0;
+	public static final int DriverRearRightPort = 3;
+	
+	public static final int MotorArmPort = 6;
+	public static final int BallCollectorMotor = 5;
+	public static final int BallShooterMotor = 7;
+	public static int MotorShooterSpeed = 1;
+	public static double MotorArmSpeed = 1;
+	public static final double DriveAutoSpeed = 0.1;
+	public static final double DriveStickSpeedDelta = 0.1;
+	
+	public static final int DriverJoystickPort = 0;
+	
+	public static boolean DriveDirectionInversed = true;
+	
+	public static final int DriveSpeedAxis = 1;
+	public static final int DriveDirectionAxis = 4;
+	
+	public static final double DriveSpeedDelta = 0.5;
+	public static final double DriveDirectionDelta = 0.5;
+	
+	public static final double DriveSafetyRate = 0.6;
+	public static final double DriveSafetyOffset = 0.4;
 }

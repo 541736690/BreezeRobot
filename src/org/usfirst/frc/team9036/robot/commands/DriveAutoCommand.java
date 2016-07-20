@@ -15,10 +15,10 @@ public class DriveAutoCommand extends Command {
     }
     
     protected void initialize() {
-    	Robot.driveSubsystem.drive(RobotMap.driveAutoSpeed, 0);
     }
     
     protected void execute() {
+    	Robot.driveSubsystem.drive(RobotMap.DriveAutoSpeed, 0);
     }
     
     protected boolean isFinished() {

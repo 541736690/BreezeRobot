@@ -15,10 +15,11 @@ public class DriveStickCommand extends Command {
     }
     
     protected void initialize() {
+    	Robot.driveSubsystem.setDirectionInversed(RobotMap.DriveDirectionInversed);
     }
     
     protected void execute() {
-    	Robot.driveSubsystem.drive(Robot.oi.mainJoystick.getMagnitude() * RobotMap.driveStickSpeedDelta, 0);
+    	Robot.driveSubsystem.customDrive(Robot.oi.mainJoystick);
     }
     
     protected boolean isFinished() {

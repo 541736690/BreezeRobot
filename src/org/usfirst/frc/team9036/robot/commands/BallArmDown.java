@@ -8,24 +8,18 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ballArmUp extends Command {
+public class BallArmDown extends Command {
 	private int time;
-	private boolean position;
-    public ballArmUp(int t,boolean pos) {
-    	requires(Robot.armControl);
+    public BallArmDown(int t) {
+    	requires(Robot.ballArmSubsystem);
     	time = t;
-    	position = pos;   //true = Up,False = Down
         // Use requires() here to declare subsystem dependencies
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	setTimeout(time);
-    	if(position){
-    	Robot.armControl.drive(Robot.oi.mainJoystick.getMagnitude() * RobotMap.motorArmSpeed);
-    	}else{
-    	Robot.armControl.drive(-Robot.oi.mainJoystick.getMagnitude() * RobotMap.motorArmSpeed);	
-    	}
+    	Robot.ballArmSubsystem.drive(-Robot.oi.mainJoystick.getMagnitude() * RobotMap.MotorArmSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -39,7 +33,7 @@ public class ballArmUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.armControl.stop();
+    	Robot.ballArmSubsystem.stop();
     }
 
     // Called when another command which requires one or more of the same

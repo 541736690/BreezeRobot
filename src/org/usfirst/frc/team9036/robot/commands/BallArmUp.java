@@ -8,18 +8,24 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class collectorCommand extends Command {
+public class BallArmUp extends Command {
 	private int time;
-    public collectorCommand(int t) {
-    	requires(Robot.collectorControl);
+	private boolean position;
+    public BallArmUp(int t, boolean pos) {
+    	requires(Robot.ballArmSubsystem);
     	time = t;
+    	position = pos;   //true = Up,False = Down
         // Use requires() here to declare subsystem dependencies
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	setTimeout(time);
-    	Robot.collectorControl.drive(Robot.oi.mainJoystick.getMagnitude() * RobotMap.motorArmSpeed);
+    	if (position) {
+    		Robot.ballArmSubsystem.drive(Robot.oi.mainJoystick.getMagnitude() * RobotMap.MotorArmSpeed);
+    	} else {
+    		Robot.ballArmSubsystem.drive(-Robot.oi.mainJoystick.getMagnitude() * RobotMap.MotorArmSpeed);	
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,7 +39,7 @@ public class collectorCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.armControl.stop();
+    	Robot.ballArmSubsystem.stop();
     }
 
     // Called when another command which requires one or more of the same

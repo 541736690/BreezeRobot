@@ -12,7 +12,7 @@ public class ArmCommand extends Command {
 	private int time;
 	private boolean position;
     public ArmCommand(int t,boolean pos) {
-    	requires(Robot.armControl);
+    	requires(Robot.ballArmSubsystem);
     	time = t;
     	position = pos;
         // Use requires() here to declare subsystem dependencies
@@ -22,9 +22,9 @@ public class ArmCommand extends Command {
     protected void initialize() {
     	setTimeout(time);
     	if(position){
-    	Robot.armControl.drive(Robot.oi.mainJoystick.getMagnitude() * RobotMap.motorArmSpeed);
+    	Robot.ballArmSubsystem.drive(Robot.oi.mainJoystick.getMagnitude() * RobotMap.MotorArmSpeed);
     	}else{
-        	Robot.armControl.drive(-Robot.oi.mainJoystick.getMagnitude() * RobotMap.motorArmSpeed);
+        	Robot.ballArmSubsystem.drive(-Robot.oi.mainJoystick.getMagnitude() * RobotMap.MotorArmSpeed);
     	}
     }
 
@@ -39,7 +39,7 @@ public class ArmCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.armControl.stop();
+    	Robot.ballArmSubsystem.stop();
     }
 
     // Called when another command which requires one or more of the same

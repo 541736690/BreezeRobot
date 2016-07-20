@@ -37,16 +37,6 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	
-	public VictorSP driveFrontLeft = new VictorSP(RobotMap.driverFrontLeftPort);
-	public VictorSP driveFrontRight = new VictorSP(RobotMap.driverFrontRightPort);
-	public VictorSP driveRearLeft = new VictorSP(RobotMap.driverRearLeftPort);
-	public VictorSP driveRearRight = new VictorSP(RobotMap.driverRearRightPort);
-	public VictorSP ballArmMotor = new VictorSP(RobotMap.motorArmPort);
-	public VictorSP ballCollectorMotor = new VictorSP(RobotMap.ballCollectorMotor);
-	public VictorSP ballShooterMotor = new VictorSP(RobotMap.ballShooterMotor);
-	
-	public RobotDrive robotDrive = new RobotDrive(driveFrontLeft, driveRearLeft, driveFrontRight, driveRearRight);
-	
-	public Joystick mainJoystick = new Joystick(1);
+	public Joystick mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 }
 

@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ShooterCommand extends Command {
 	private int time;
     public ShooterCommand(int t) {
-    	requires(Robot.shooterControl);
+    	requires(Robot.ballShooterSubsystem);
     	time = t;
         // Use requires() here to declare subsystem dependencies
     }
@@ -19,7 +19,7 @@ public class ShooterCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	setTimeout(time);
-    	Robot.shooterControl.drive(Robot.oi.mainJoystick.getMagnitude() * RobotMap.motorShooterSpeed);
+    	Robot.ballShooterSubsystem.drive(Robot.oi.mainJoystick.getMagnitude() * RobotMap.MotorShooterSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,7 +33,7 @@ public class ShooterCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.armControl.stop();
+    	Robot.ballShooterSubsystem.stop();
     }
 
     // Called when another command which requires one or more of the same
