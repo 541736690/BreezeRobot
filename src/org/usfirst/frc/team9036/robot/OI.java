@@ -1,9 +1,12 @@
 package org.usfirst.frc.team9036.robot;
 
+import org.usfirst.frc.team9036.robot.commands.DriveGyroCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -38,5 +41,10 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 	
 	public Joystick mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
+	public Button btnGyro = new JoystickButton(mainJoystick, 4);
+	
+	public OI() {
+		btnGyro.whileHeld(new DriveGyroCommand());
+	}
 }
 

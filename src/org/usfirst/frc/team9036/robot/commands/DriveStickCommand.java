@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveStickCommand extends Command {
-
+	
     public DriveStickCommand() {
     	requires(Robot.driveSubsystem);
     }

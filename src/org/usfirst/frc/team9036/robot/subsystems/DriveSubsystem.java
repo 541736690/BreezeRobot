@@ -1,9 +1,12 @@
 package org.usfirst.frc.team9036.robot.subsystems;
 
+import com.kauailabs.navx.frc.AHRS;
 import org.usfirst.frc.team9036.robot.Robot;
 import org.usfirst.frc.team9036.robot.RobotMap;
 import org.usfirst.frc.team9036.robot.commands.DriveStickCommand;
 
+import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -32,6 +35,10 @@ public class DriveSubsystem extends Subsystem {
     
     public void arcadeDrive(Joystick joystick) {
     	robotDrive.arcadeDrive(joystick);
+    }
+    
+    public void arcadeDrive(double moveValue, double rotateValue) {
+    	robotDrive.arcadeDrive(moveValue, rotateValue);
     }
     
     public void customDrive(Joystick joystick) {
