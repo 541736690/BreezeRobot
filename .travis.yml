@@ -2,9 +2,9 @@ language: java
 jdk:
   - oraclejdk8
 before_install:
-  - wget "https://github.com/SkyZH/BreezeRobot-Dependency/raw/master/libs/navx_frc.jar" -P ~/libs
-  - wget "https://github.com/SkyZH/BreezeRobot-Dependency/raw/master/libs/WPILib.jar" -P ~/libs
-  - wget "https://github.com/SkyZH/BreezeRobot-Dependency/raw/master/libs/NetworkTables.jar" -P ~/libs
+  - wget "https://github.com/SkyZH/BreezeRobot-Dependency/raw/master/libs/navx_frc.jar" -P libs
+  - wget "https://github.com/SkyZH/BreezeRobot-Dependency/raw/master/libs/WPILib.jar" -P libs
+  - wget "https://github.com/SkyZH/BreezeRobot-Dependency/raw/master/libs/NetworkTables.jar" -P libs
   - chmod +x gradlew
 script:
   - gradle build
