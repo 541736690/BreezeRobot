@@ -117,4 +117,4 @@ ENV/
 # Rope project settings
 .ropeproject
 
-vision/TestData
+vision/analytics/TestData
