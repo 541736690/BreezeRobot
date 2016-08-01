@@ -1,0 +1,6 @@
+[submodule "vision/webdashboard"]
+	path = vision/webdashboard
+	url = git@github.com:SkyZH/stronghold-vision-webdashboard.git
+[submodule "vision/proxy"]
+	path = vision/proxy
+	url = git@github.com:SkyZH/stronghold-vision-mjpeg-proxy.git
