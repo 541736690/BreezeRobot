@@ -118,3 +118,4 @@ ENV/
 .ropeproject
 
 vision/analytics/TestData
+vision/proxy/node_modules
