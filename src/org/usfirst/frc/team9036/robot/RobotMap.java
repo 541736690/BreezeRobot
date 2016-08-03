@@ -30,6 +30,7 @@ public class RobotMap {
 	public static final double DriveStickSpeedDelta = 0.1;
 	
 	public static final int DriverJoystickPort = 0;
+	public static final int ShooterJoystickPort = 1;
 	
 	public static boolean DriveDirectionInversed = true;
 	

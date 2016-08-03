@@ -1,5 +1,6 @@
 package org.usfirst.frc.team9036.robot;
 
+import org.usfirst.frc.team9036.robot.commands.BallCollectorCommand;
 import org.usfirst.frc.team9036.robot.commands.DriveGyroCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -41,10 +42,12 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 	
 	public Joystick mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
+	public Joystick shootJoystick=new Joystick(RobotMap.ShooterJoystickPort);
 	public Button btnGyro = new JoystickButton(mainJoystick, 4);
-	
+	public Button ballCollectorButton =new JoystickButton(mainJoystick,4);
 	public OI() {
 		btnGyro.whileHeld(new DriveGyroCommand());
+		ballCollectorButton.whileHeld(new BallCollectorCommand());
 	}
 }
 
