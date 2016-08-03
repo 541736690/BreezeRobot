@@ -8,3 +8,5 @@ before_install:
   - chmod +x gradlew
 script:
   - gradle build
+notifications:
+  slack: efzrobotics:vLM1ncv802ojsgFL7ybXj6mk
