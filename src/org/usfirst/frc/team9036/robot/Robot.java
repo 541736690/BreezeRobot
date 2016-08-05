@@ -7,7 +7,6 @@ import org.usfirst.frc.team9036.robot.subsystems.GyroSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallArmSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallCollectorSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallShooterSubsystem;
-import org.usfirst.frc.team9036.robot.subsystems.DriveButtonSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;

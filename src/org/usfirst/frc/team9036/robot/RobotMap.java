@@ -16,21 +16,23 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	
+	// RobotDrive Motor Settings
 	public static final int DriverFrontLeftPort = 1;
 	public static final int DriverFrontRightPort = 2;
 	public static final int DriverRearLeftPort = 0;
 	public static final int DriverRearRightPort = 3;
 	
+	// Other Motors
 	public static final int MotorArmPort = 6;
 	public static final int BallCollectorMotor = 5;
 	public static final int BallShooterMotor = 7;
+	
+	
 	public static int MotorShooterSpeed = 1;
 	public static double MotorArmSpeed = 1;
+	
 	public static final double DriveAutoSpeed = 0.1;
 	public static final double DriveStickSpeedDelta = 0.1;
-	
-	public static final int DriverJoystickPort = 0;
-	public static final int ShooterJoystickPort = 1;
 	
 	public static boolean DriveDirectionInversed = true;
 	
@@ -48,5 +50,13 @@ public class RobotMap {
 	public static final double DriveDirectionTolerance = 5;
 	public static final double DriveDirectionMinSpeed = 0.3;
 	
-	public static final int BallCollectorButtonPort=8;
+	public static final int DriverJoystickPort = 0;
+	public static final int ShooterJoystickPort = 1;
+	
+	// Drive Joystick Buttons
+	
+	public static final int ButtonGyroResetPort = 4;
+	
+	// Shooter Joystick Buttons
+	public static final int ButtonBallCollectorPort = 8;
 }

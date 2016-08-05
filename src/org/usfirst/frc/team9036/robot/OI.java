@@ -43,11 +43,13 @@ public class OI {
 	
 	public Joystick mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 	public Joystick shootJoystick=new Joystick(RobotMap.ShooterJoystickPort);
-	public Button btnGyro = new JoystickButton(mainJoystick, 4);
-	public Button ballCollectorButton =new JoystickButton(mainJoystick,4);
+	
+	public Button buttonGyro = new JoystickButton(mainJoystick, RobotMap.ButtonGyroResetPort);
+	public Button buttonBallCollector = new JoystickButton(mainJoystick, RobotMap.ButtonBallCollectorPort);
+	
 	public OI() {
-		btnGyro.whileHeld(new DriveGyroCommand());
-		ballCollectorButton.whileHeld(new BallCollectorCommand());
+		buttonGyro.whileHeld(new DriveGyroCommand());
+		buttonBallCollector.whileHeld(new BallCollectorCommand());
 	}
 }
 
