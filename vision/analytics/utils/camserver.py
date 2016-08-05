@@ -3,7 +3,7 @@ import numpy as np
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 class CamHandler(BaseHTTPRequestHandler):
-	def do_GET(self):
+    def do_GET(self):
 		if self.path.endswith('.mjpg'):
 			self.send_response(200)
 			self.send_header('Content-type','multipart/x-mixed-replace; boundary=--jpgboundary')
