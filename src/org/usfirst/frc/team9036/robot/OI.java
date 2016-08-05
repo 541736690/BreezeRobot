@@ -47,7 +47,7 @@ public class OI {
 	
 	public Button buttonGyro = new JoystickButton(mainJoystick, RobotMap.ButtonGyroResetPort);
 	
-	public Button ballCollectorButton =new JoystickButton(mainJoystick,RobotMap.BallCollectorMotor);
+	public Button ballCollectorButton =new JoystickButton(mainJoystick, RobotMap.BallCollectorMotor);
 
 	
 	public OI() {
