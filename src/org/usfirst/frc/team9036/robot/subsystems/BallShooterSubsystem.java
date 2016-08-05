@@ -14,8 +14,8 @@ public class BallShooterSubsystem extends Subsystem {
 	
     public void initDefaultCommand() {
     }
-    public void drive(double speed) {
-    	ballShooterMotor.set(speed);
+    public void start() {
+    	ballShooterMotor.set(RobotMap.BallShooterMotorSpeed);
     }
     public void stop(){
     	ballShooterMotor.stopMotor();

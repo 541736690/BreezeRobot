@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class BallArmSubsystem extends Subsystem {
-	public VictorSP ballArmMotor = new VictorSP(RobotMap.MotorArmPort);
+	public VictorSP ballArmMotor = new VictorSP(RobotMap.BallArmPort);
 	
     public void initDefaultCommand() {
 

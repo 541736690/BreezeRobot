@@ -23,14 +23,15 @@ public class RobotMap {
 	public static final int DriverRearRightPort = 3;
 	
 	// Other Motors
-	public static final int MotorArmPort = 6;
+	public static final int BallArmPort = 6;
 	public static final int BallCollectorMotor = 5;
 	public static final int BallShooterMotor = 7;
 	
 	
-	public static int MotorShooterSpeed = 1;
-	public static double MotorArmSpeed = 1;
+	public static double BallShooterMotorSpeed = 1;
+	public static double BallArmMotorSpeed = 1.0;
 	
+	// Drive Settings
 	public static final double DriveAutoSpeed = 0.1;
 	public static final double DriveStickSpeedDelta = 0.1;
 	
