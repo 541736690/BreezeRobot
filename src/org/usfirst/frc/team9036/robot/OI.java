@@ -43,18 +43,16 @@ public class OI {
 	
 	public Joystick mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 	public Joystick shootJoystick=new Joystick(RobotMap.ShooterJoystickPort);
-<<<<<<< Updated upstream
+
 	
 	public Button buttonGyro = new JoystickButton(mainJoystick, RobotMap.ButtonGyroResetPort);
-	public Button buttonBallCollector = new JoystickButton(mainJoystick, RobotMap.ButtonBallCollectorPort);
 	
-=======
-	public Button btnGyro = new JoystickButton(mainJoystick, 4);
-	public Button ballCollectorButton =new JoystickButton(mainJoystick,RobotMap.BallCollectorButtonPort);
->>>>>>> Stashed changes
+	public Button ballCollectorButton =new JoystickButton(mainJoystick,RobotMap.BallCollectorMotor);
+
+	
 	public OI() {
 		buttonGyro.whileHeld(new DriveGyroCommand());
-		buttonBallCollector.whileHeld(new BallCollectorCommand());
+		ballCollectorButton.whileHeld(new BallCollectorCommand());
 	}
 }
 
