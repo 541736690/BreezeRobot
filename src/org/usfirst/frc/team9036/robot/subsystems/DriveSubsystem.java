@@ -3,6 +3,7 @@ package org.usfirst.frc.team9036.robot.subsystems;
 import com.kauailabs.navx.frc.AHRS;
 import org.usfirst.frc.team9036.robot.Robot;
 import org.usfirst.frc.team9036.robot.RobotMap;
+import org.usfirst.frc.team9036.robot.commands.DriveButtonCommand;
 import org.usfirst.frc.team9036.robot.commands.DriveStickCommand;
 
 import edu.wpi.first.wpilibj.SPI;
@@ -26,7 +27,7 @@ public class DriveSubsystem extends Subsystem {
 	RobotDrive robotDrive = new RobotDrive(driveFrontLeft, driveRearLeft, driveFrontRight, driveRearRight);
 	
     public void initDefaultCommand() {
-    	setDefaultCommand(new DriveStickCommand());
+    	setDefaultCommand(new DriveButtonCommand());
     }
     
     public void drive(double speed, double curve) {

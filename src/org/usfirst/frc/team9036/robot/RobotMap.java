@@ -21,6 +21,8 @@ public class RobotMap {
 	public static final int DriverFrontRightPort = 2;
 	public static final int DriverRearLeftPort = 0;
 	public static final int DriverRearRightPort = 3;
+	public static final int ButtonLeftDrivePort = 1;
+	public static final int ButtonRightDrivePort = 2;
 	
 	// Other Motors
 	public static final int BallArmPort = 6;
@@ -30,6 +32,7 @@ public class RobotMap {
 	
 	public static double BallShooterMotorSpeed = 1;
 	public static double BallArmMotorSpeed = 1.0;
+	public static double BallCollectorMotorSpeed = 1.0;
 	
 	// Drive Settings
 	public static final double DriveAutoSpeed = 0.1;
@@ -54,10 +57,10 @@ public class RobotMap {
 	public static final int DriverJoystickPort = 0;
 	public static final int ShooterJoystickPort = 1;
 	
+	
 	// Drive Joystick Buttons
 	
 	public static final int ButtonGyroResetPort = 4;
-	
-	// Shooter Joystick Buttons
-	public static final int ButtonBallCollectorPort = 8;
+	public static final int ButtonBallCollectorPort = 3;
+	// Shooter Joystick Button
 }
