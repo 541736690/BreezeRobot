@@ -23,8 +23,16 @@ public class DriveButtonCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveSubsystem.customDrive(Robot.oi.mainJoystick);
-    }
+    	boolean isLeftHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.ButtonLeftDrivePort);
+    	boolean isRightHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.ButtonRightDrivePort);
+
+    	if (isLeftHeld && isRightHeld) {
+    	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed, 0);
+    	} else if (isLeftHeld) {    
+    	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed, -RobotMap.DriveButtonMaxCurve);
+    	} else if (isRightHeld) {
+    	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed,RobotMap.DriveButtonMaxCurve);
+    	}    }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

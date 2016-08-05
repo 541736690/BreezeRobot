@@ -42,6 +42,8 @@ public class RobotMap {
 	
 	public static final int DriveSpeedAxis = 1;
 	public static final int DriveDirectionAxis = 4;
+	public static final double DriveButtonMaxSpeed = 0.5;
+	public static final double DriveButtonMaxCurve = 0.5;
 	
 	public static final double DriveSpeedDelta = 0.5;
 	public static final double DriveDirectionDelta = 0.5;
