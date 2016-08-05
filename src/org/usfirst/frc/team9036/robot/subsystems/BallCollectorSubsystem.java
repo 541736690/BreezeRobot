@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class BallCollectorSubsystem extends Subsystem {
-	VictorSP ballCollectorMotor= new VictorSP(RobotMap.BallCollectorMotor);
+	VictorSP ballCollectorMotor= new VictorSP(RobotMap.ButtonBallCollectorPort);
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

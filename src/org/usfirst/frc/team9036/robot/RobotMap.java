@@ -55,9 +55,10 @@ public class RobotMap {
 	public static final int DriverJoystickPort = 0;
 	public static final int ShooterJoystickPort = 1;
 	
+	
 	// Drive Joystick Buttons
 	
 	public static final int ButtonGyroResetPort = 4;
-	
+	public static final int ButtonBallCollectorPort = 3;
 	// Shooter Joystick Button
 }
