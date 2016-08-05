@@ -30,6 +30,7 @@ public class RobotMap {
 	
 	public static double BallShooterMotorSpeed = 1;
 	public static double BallArmMotorSpeed = 1.0;
+	public static double BallCollectorMotorSpeed = 1.0;
 	
 	// Drive Settings
 	public static final double DriveAutoSpeed = 0.1;
