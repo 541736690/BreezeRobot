@@ -21,18 +21,20 @@ public class RobotMap {
 	public static final int DriverFrontRightPort = 2;
 	public static final int DriverRearLeftPort = 0;
 	public static final int DriverRearRightPort = 3;
-	public static final int ButtonLeftDrivePort = 1;
-	public static final int ButtonRightDrivePort = 2;
+	
+	public static final int ButtonLeftDrivePort = 5;
+	public static final int ButtonRightDrivePort = 6;
+	
 	public static final int BallArmSubsystemPort1 = 0;
 	public static final int BallArmSubsystemPort2 = 1;
-	public static final int DriveLeftAxisPort = 1;
-	public static final int DriveRightAxisPort = 2;
-	public static final int BallAutoAimMotor = 1;
-	public static final int LeftTurningButtonPort = 1;
-	public static final int RightTurningButtonPort = 1;
-	public static final int ReturnAxis = 4;
+	
+	public static final int DriveLeftAxisPort = 2;
+	public static final int DriveRightAxisPort = 3;
+	public static final int BallAutoAimMotor = 9;
+	public static final int LeftTurningButtonPort = 7;
+	public static final int RightTurningButtonPort = 8;
 	public static final int ForwardTurningButtonPort = 1;
-	public static final int BackwardTurningButtonPort = 1;
+	public static final int BackwardTurningButtonPort = 2;
 	
 	// Other Motors
 	public static final int BallArmPort = 6;
