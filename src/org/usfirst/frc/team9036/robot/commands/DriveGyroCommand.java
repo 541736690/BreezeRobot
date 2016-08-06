@@ -2,6 +2,7 @@ package org.usfirst.frc.team9036.robot.commands;
 
 import org.usfirst.frc.team9036.robot.Robot;
 import org.usfirst.frc.team9036.robot.RobotMap;
+import org.usfirst.frc.team9036.robot.subsystems.DriveSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -10,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveGyroCommand extends Command {
 
+	int direction=DriveSubsystem.driveDirection;
     public DriveGyroCommand() {
     	requires(Robot.driveSubsystem);
     }
@@ -42,7 +44,7 @@ public class DriveGyroCommand extends Command {
     		}else if (leftAngle<40 && leftAngle>0){
     			speed=leftAngle/80;
     		}
-    		Robot.driveSubsystem.drive(0,speed);
+    		Robot.driveSubsystem.drive(0,speed*direction);
     		mod=0;
     	}else if (mod==1 || mod==2){
     		double currentAngle = Math.abs(Robot.gyroSubsystem.getAngle() % 360);
@@ -62,7 +64,7 @@ public class DriveGyroCommand extends Command {
         	}else if (leftAngle<30 && leftAngle>0){
         		speed=i*leftAngle/60;
         	}
-    	Robot.driveSubsystem.drive(0,speed);
+    	Robot.driveSubsystem.drive(0,speed*direction);
     	}
     }
 

@@ -1,40 +1,34 @@
 package org.usfirst.frc.team9036.robot.commands;
 
 import org.usfirst.frc.team9036.robot.Robot;
+import org.usfirst.frc.team9036.robot.RobotMap;
+import org.usfirst.frc.team9036.robot.subsystems.DriveSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class DebugCommand extends Command {
+public class DriveDirectionChangeCommand extends Command {
 
-    public DebugCommand() {
+    public DriveDirectionChangeCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.debugSubsystem);
+    	requires(Robot.driveSubsystem);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	DriveSubsystem.driveDirection=DriveSubsystem.driveDirection*-1;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	for (int i=0;i<=15;i++){
-    		String s="mainButton"+i;
-    		SmartDashboard.putBoolean(s, Robot.oi.mainJoystick.getRawButton(i));
-    	}
-    	for (int i=0;i<=15;i++){
-    		String s="shootButton"+i;
-    		SmartDashboard.putBoolean(s, Robot.oi.shootJoystick.getRawButton(i));
-    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

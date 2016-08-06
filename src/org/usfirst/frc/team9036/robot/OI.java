@@ -47,12 +47,11 @@ public class OI {
 	public Joystick shootJoystick=new Joystick(RobotMap.ShooterJoystickPort);
 
 	
-	public Button buttonGyro = new JoystickButton(mainJoystick, RobotMap.ButtonGyroResetPort);
+	public Button gyroTurningAxis = new JoystickButton(mainJoystick, RobotMap.GyroTurningAxisPort);
 	
-	public Button ballCollectorButton =new JoystickButton(mainJoystick, RobotMap.BallCollectorMotor);
+	public Button ballCollectorButton =new JoystickButton(shootJoystick, RobotMap.BallCollectorMotor);
 	public Button ballAutoAimButton = new JoystickButton(shootJoystick,RobotMap.BallAutoAimMotor);
 	public OI() {
-		buttonGyro.whileHeld(new DriveGyroCommand());
 		ballCollectorButton.whileHeld(new BallCollectorCommand());
 		ballAutoAimButton.whenPressed(new BallAutoAimCommand());
 	}

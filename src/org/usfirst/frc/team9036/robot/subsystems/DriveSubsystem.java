@@ -19,7 +19,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class DriveSubsystem extends Subsystem {
-    
+	
+	public static int driveDirection = 1;
+	
 	VictorSP driveFrontLeft = new VictorSP(RobotMap.DriverFrontLeftPort);
 	VictorSP driveFrontRight = new VictorSP(RobotMap.DriverFrontRightPort);
 	VictorSP driveRearLeft = new VictorSP(RobotMap.DriverRearLeftPort);
