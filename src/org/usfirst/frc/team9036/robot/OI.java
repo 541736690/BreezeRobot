@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -53,6 +54,7 @@ public class OI {
 	public OI() {
 		buttonGyro.whileHeld(new DriveGyroCommand());
 		ballCollectorButton.whileHeld(new BallCollectorCommand());
+		SmartDashboard.putBoolean("ButtonData", Robot.oi.mainJoystick.getRawButton(RobotMap.ButtonLeftDrivePort));
 	}
 }
 

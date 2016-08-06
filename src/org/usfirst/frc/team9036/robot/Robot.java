@@ -7,6 +7,7 @@ import org.usfirst.frc.team9036.robot.subsystems.GyroSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallArmSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallCollectorSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallShooterSubsystem;
+import org.usfirst.frc.team9036.robot.subsystems.DebugSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -29,6 +30,7 @@ public class Robot extends IterativeRobot {
 	public static final BallCollectorSubsystem ballCollectorSubsystem = new BallCollectorSubsystem();
 	public static final BallShooterSubsystem ballShooterSubsystem = new BallShooterSubsystem();
 	public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();
+	public static final DebugSubsystem debugSubsystem = new DebugSubsystem();
 	
 	public static OI oi;
 
