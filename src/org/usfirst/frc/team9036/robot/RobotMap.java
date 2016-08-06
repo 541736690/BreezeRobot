@@ -31,6 +31,8 @@ public class RobotMap {
 	public static final int LeftTurningButtonPort = 1;
 	public static final int RightTurningButtonPort = 1;
 	public static final int ReturnAxis = 4;
+	public static final int ForwardTurningButtonPort = 1;
+	public static final int BackwardTurningButtonPort = 1;
 	
 	// Other Motors
 	public static final int BallArmPort = 6;
@@ -59,7 +61,8 @@ public class RobotMap {
 	public static final double DriveSafetyRate = 0.6;
 	public static final double DriveSafetyOffset = 0.4;
 	
-	public static final double DriveGyroAutoRotateSpeed =  0.5;
+	public static final double DriveGyroRotateMinSpeed = 0.5;
+	public static final double DriveGyroRotateMaxSpeed = 1;
 	public static final double DriveGyroAutoRotateDelta = 180;
 	public static final double DriveDirectionTolerance = 5;
 	public static final double DriveDirectionMinSpeed = 0.3;
