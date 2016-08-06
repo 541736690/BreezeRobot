@@ -25,6 +25,8 @@ public class RobotMap {
 	public static final int ButtonRightDrivePort = 2;
 	public static final int BallArmSubsystemPort1 = 0;
 	public static final int BallArmSubsystemPort2 = 1;
+	public static final int DriveLeftAxisPort = 1;
+	public static final int DriveRightAxisPort = 2;
 	
 	// Other Motors
 	public static final int BallArmPort = 6;

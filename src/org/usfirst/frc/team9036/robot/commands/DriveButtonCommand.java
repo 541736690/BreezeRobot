@@ -25,13 +25,15 @@ public class DriveButtonCommand extends Command {
     protected void execute() {
     	boolean isLeftHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.ButtonLeftDrivePort);
     	boolean isRightHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.ButtonRightDrivePort);
-
-    	if (isLeftHeld && isRightHeld) {
-    	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed, 0);
+        double lefttrigger = Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveLeftAxisPort);
+        double righttrigger = -Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveRightAxisPort);
+    	double finaltrigger=lefttrigger+righttrigger;
+        if (isLeftHeld && isRightHeld) {
+    	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed*finaltrigger, 0);
     	} else if (isLeftHeld) {    
-    	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed, -RobotMap.DriveButtonMaxCurve);
+    	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed*finaltrigger, -RobotMap.DriveButtonMaxCurve);
     	} else if (isRightHeld) {
-    	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed,RobotMap.DriveButtonMaxCurve);
+    	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed*finaltrigger,RobotMap.DriveButtonMaxCurve);
     	}    }
 
     // Make this return true when this Command no longer needs to run execute()
