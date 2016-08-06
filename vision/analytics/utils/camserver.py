@@ -3,7 +3,7 @@ import numpy as np
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 class CamHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
+	def do_GET(self):
 		if self.path.endswith('.mjpg'):
 			self.send_response(200)
 			self.send_header('Content-type','multipart/x-mixed-replace; boundary=--jpgboundary')
@@ -27,10 +27,10 @@ class CamHandler(BaseHTTPRequestHandler):
 					break
 
 class CamServer(HTTPServer):
-    def serve_forever(self, capture_func):
-        self.RequestHandlerClass.capture_func = capture_func
-        HTTPServer.serve_forever(self)
+	def serve_forever(self, capture_func):
+		self.RequestHandlerClass.capture_func = capture_func
+		HTTPServer.serve_forever(self)
 
 def serve(config, capture_func, server_class=CamServer, handler_class=CamHandler):
-    server = server_class((config["host"], config["port"]), handler_class)
-    server.serve_forever(capture_func)
+	server = server_class((config["host"], config["port"]), handler_class)
+	server.serve_forever(capture_func)
