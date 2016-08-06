@@ -51,7 +51,6 @@ public class OI {
 	
 	public Button ballCollectorButton =new JoystickButton(mainJoystick, RobotMap.BallCollectorMotor);
 	public Button ballAutoAimButton = new JoystickButton(shootJoystick,RobotMap.BallAutoAimMotor);
-	
 	public OI() {
 		buttonGyro.whileHeld(new DriveGyroCommand());
 		ballCollectorButton.whileHeld(new BallCollectorCommand());
