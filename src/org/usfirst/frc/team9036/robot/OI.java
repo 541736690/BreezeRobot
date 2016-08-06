@@ -1,5 +1,6 @@
 package org.usfirst.frc.team9036.robot;
 
+import org.usfirst.frc.team9036.robot.commands.BallAutoAimCommand;
 import org.usfirst.frc.team9036.robot.commands.BallCollectorCommand;
 import org.usfirst.frc.team9036.robot.commands.DriveGyroCommand;
 
@@ -49,12 +50,12 @@ public class OI {
 	public Button buttonGyro = new JoystickButton(mainJoystick, RobotMap.ButtonGyroResetPort);
 	
 	public Button ballCollectorButton =new JoystickButton(mainJoystick, RobotMap.BallCollectorMotor);
-
+	public Button ballAutoAimButton = new JoystickButton(shootJoystick,RobotMap.BallAutoAimMotor);
 	
 	public OI() {
 		buttonGyro.whileHeld(new DriveGyroCommand());
 		ballCollectorButton.whileHeld(new BallCollectorCommand());
-		SmartDashboard.putBoolean("ButtonData", Robot.oi.mainJoystick.getRawButton(RobotMap.ButtonLeftDrivePort));
+		ballAutoAimButton.whenPressed(new BallAutoAimCommand());
 	}
 }
 
