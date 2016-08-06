@@ -10,8 +10,8 @@ from detect import detect
 import config
 
 def do_capture(self):
-	if capture.isOpened():
-		ret, frame = capture.read()
+    if capture.isOpened():
+        ret, frame = capture.read()
 		if ret:
 			img, cnt = detect.do_detect(frame)
 			return img
