@@ -7,25 +7,18 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/**
- *
- */
 public class GyroDebugCommand extends Command {
 	
 	private AHRS ahrs;
 	
     public GyroDebugCommand() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     	requires(Robot.gyroSubsystem);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
     	this.ahrs = Robot.gyroSubsystem.ahrs;
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         SmartDashboard.putBoolean(  "IMU_Connected",        ahrs.isConnected());
         SmartDashboard.putBoolean(  "IMU_IsCalibrating",    ahrs.isCalibrating());
@@ -105,17 +98,13 @@ public class GyroDebugCommand extends Command {
         SmartDashboard.putNumber(   "IMU_Update_Count",     ahrs.getUpdateCount());
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }
 
-    // Called once after isFinished returns true
     protected void end() {
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     }
 }

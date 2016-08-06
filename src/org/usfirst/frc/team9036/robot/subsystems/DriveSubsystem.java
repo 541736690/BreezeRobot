@@ -15,9 +15,6 @@ import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
 public class DriveSubsystem extends Subsystem {
 	
 	public static int driveDirection = 1;

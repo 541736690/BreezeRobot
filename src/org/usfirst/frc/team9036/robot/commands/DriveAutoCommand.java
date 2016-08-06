@@ -5,9 +5,6 @@ import org.usfirst.frc.team9036.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class DriveAutoCommand extends Command {
 
     public DriveAutoCommand() {
