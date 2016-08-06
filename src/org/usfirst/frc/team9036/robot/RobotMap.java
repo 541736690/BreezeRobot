@@ -22,19 +22,14 @@ public class RobotMap {
 	public static final int DriverRearLeftPort = 0;
 	public static final int DriverRearRightPort = 3;
 	
-	public static final int ButtonLeftDrivePort = 5;
-	public static final int ButtonRightDrivePort = 6;
+	
 	
 	public static final int BallArmSubsystemPort1 = 0;
 	public static final int BallArmSubsystemPort2 = 1;
 	
-	public static final int DriveLeftAxisPort = 2;
-	public static final int DriveRightAxisPort = 3;
+	
 	public static final int BallAutoAimMotor = 9;
-	public static final int LeftTurningButtonPort = 7;
-	public static final int RightTurningButtonPort = 8;
-	public static final int ForwardTurningButtonPort = 1;
-	public static final int BackwardTurningButtonPort = 2;
+
 	
 	// Other Motors
 	public static final int BallArmPort = 6;
@@ -51,9 +46,6 @@ public class RobotMap {
 	public static final double DriveStickSpeedDelta = 0.1;
 	
 	public static boolean DriveDirectionInversed = true;
-	
-	public static final int DriveSpeedAxis = 1;
-	public static final int DriveDirectionAxis = 4;
 	public static final double DriveButtonMaxSpeed = 0.5;
 	public static final double DriveButtonMaxCurve = 0.5;
 	
@@ -74,10 +66,27 @@ public class RobotMap {
 	
 	
 	// Drive Joystick Buttons
+
+	public static final int LeftDriveButtonID = 5;
+	public static final int RightDriveButtonID = 6;
+	
+	// Drive Joystick Axis
+	public static final int DriveLeftAxisPort = 2;
+	public static final int DriveRightAxisPort = 3;
 	public static final int GyroTurningAxisPort = 4;
-	public static final int ButtonBallCollectorPort = 3;
-	public static int direction=1;
+	public static final int LeftTurningButtonID = 7;
+	public static final int RightTurningButtonID = 8;
+	public static final int ForwardTurningButtonID = 1;
+	public static final int BackwardTurningButtonID = 5;
+	public static final int DriveSpeedAxis = 6;
+	public static final int DriveDirectionAxis = 9;
 	
 	// Shooter Joystick Button
+	public static final int BallCollectorButtonID = 3;
+	public static final int LeftBallShooterButtonID = 4;
+	public static final int RightBallShooterButtonID = 5;
+	
+	// Shooter Joystick Axis
+	public static final int BallShootererAdjustingAxisPort = 1;
 }
 

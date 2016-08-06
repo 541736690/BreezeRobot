@@ -23,13 +23,13 @@ public class DriveGyroCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	int mod=0; double i=0;
-    	if (Robot.oi.mainJoystick.getRawButton(RobotMap.LeftTurningButtonPort)==true){
+    	if (Robot.oi.mainJoystick.getRawButton(RobotMap.LeftTurningButtonID)==true){
     		i=-1;
-    	}else if (Robot.oi.mainJoystick.getRawButton(RobotMap.RightTurningButtonPort)==true){
+    	}else if (Robot.oi.mainJoystick.getRawButton(RobotMap.RightTurningButtonID)==true){
     		i=1;
-    	}else if (Robot.oi.mainJoystick.getRawButton(RobotMap.ForwardTurningButtonPort)==true){
+    	}else if (Robot.oi.mainJoystick.getRawButton(RobotMap.ForwardTurningButtonID)==true){
     		mod=1;
-    	}else if (Robot.oi.mainJoystick.getRawButton(RobotMap.BackwardTurningButtonPort)==true){
+    	}else if (Robot.oi.mainJoystick.getRawButton(RobotMap.BackwardTurningButtonID)==true){
     		mod=2;
     	}
     	

@@ -24,8 +24,8 @@ public class DriveButtonCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	boolean isLeftHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.ButtonLeftDrivePort);
-    	boolean isRightHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.ButtonRightDrivePort);
+    	boolean isLeftHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.LeftDriveButtonID);
+    	boolean isRightHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.RightDriveButtonID);
         double lefttrigger = Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveLeftAxisPort);
         double righttrigger = -Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveRightAxisPort);
     	double finaltrigger=Math.abs(lefttrigger+righttrigger);
