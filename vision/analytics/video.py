@@ -6,6 +6,7 @@ import logging
 from networktables import NetworkTable
 import time
 import config
+import subprocess
 
 from utils import camserver
 from detect import detect
@@ -38,6 +39,15 @@ def do_capture(self):
     else:
         return None
 
+def onValueChanged(table, key, value, isNew):
+    if key == "manual_exposure":
+        if value == 0:
+            subprocess.run("v4l2-ctl -c exposure_auto=1", shell=True, check=False)
+            subprocess.run("v4l2-ctl -c exposure_absolute=5", shell=True, check=False)
+        elif value == 1:
+            subprocess.run("v4l2-ctl -c exposure_auto=3", shell=True, check=False)
+
+
 def init_ntable():
     global ntable
     NetworkTable.setIPAddress(config.server["rioAddress"])
@@ -47,9 +57,12 @@ def init_ntable():
 
     ntable = NetworkTable.getTable('vision');
 
+    ntable.addTableListener(onValueChanged)
+
 def main():
     global capture
     init_ntable()
+    subprocess.run("v4l2-ctl -c exposure_auto=3", shell=True, check=False)
     capture = cv2.VideoCapture(0)
     try:
         camserver.serve(config.server, do_capture)
