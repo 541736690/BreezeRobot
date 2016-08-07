@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveAdjustTurningCommand extends Command {
 	double targetAngle = 0;
+	double currentLeftAngle;
 	int driveDirection = DriveSubsystem.driveDirection;
     public DriveAdjustTurningCommand(double i) {
         // Use requires() here to declare subsystem dependencies
@@ -25,36 +26,38 @@ public class DriveAdjustTurningCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double CurrentAngle = (Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 ;
+    	double currentAngle = (Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 ;
     	double direction = 0;
-    	if (CurrentAngle <180 && targetAngle == 0){
+    	if (currentAngle <180 && targetAngle == 0){
     		direction = -1;
-    	} else if (CurrentAngle >= 180 && targetAngle == 0){
+    	} else if (currentAngle >= 180 && targetAngle == 0){
     		direction = 1;
-    	} else if (CurrentAngle < 180 && targetAngle == 180){
+    	} else if (currentAngle < 180 && targetAngle == 180){
     		direction = 1;
-    	} else if (CurrentAngle >= 180 && targetAngle == 180){
+    	} else if (currentAngle >= 180 && targetAngle == 180){
     		direction = -1;
     	}
-    	double currentLeftAngle = Math.abs((Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 -targetAngle);
+    	currentLeftAngle = Math.abs((Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 -targetAngle);
     	if (currentLeftAngle >= RobotMap.DriveGyroRotateLimitAngle){
 			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * RobotMap.DriveGyroRotateMaxSpeed);
 		}else if (currentLeftAngle < RobotMap.DriveGyroRotateLimitAngle && currentLeftAngle > 0){
-			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * currentLeftAngle / RobotMap.DriveGyroRotateLimitAngle * 2);
+			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * currentLeftAngle / (RobotMap.DriveGyroRotateLimitAngle * 2) + 0.5);
 		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (currentLeftAngle <= RobotMap.DriveDirectionTolerance);
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.driveSubsystem.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
