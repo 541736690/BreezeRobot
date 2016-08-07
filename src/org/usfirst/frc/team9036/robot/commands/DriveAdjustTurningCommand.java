@@ -10,14 +10,15 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveAdjustTurningCommand extends Command {
+	double targetRotateAngle = 0;
 	double targetAngle = 0;
-	double currentLeftAngle;
+	double currentLeftAngle = 0;
 	int driveDirection = DriveSubsystem.driveDirection;
     public DriveAdjustTurningCommand(double i) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveSubsystem);
-    	this.targetAngle = i;
+    	this.targetRotateAngle = i;
     }
     
     // Called just before this Command runs the first time
@@ -28,14 +29,18 @@ public class DriveAdjustTurningCommand extends Command {
     protected void execute() {
     	double currentAngle = (Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 ;
     	double direction = 0;
-    	if (currentAngle <180 && targetAngle == 0){
-    		direction = -1;
-    	} else if (currentAngle >= 180 && targetAngle == 0){
-    		direction = 1;
-    	} else if (currentAngle < 180 && targetAngle == 180){
-    		direction = 1;
-    	} else if (currentAngle >= 180 && targetAngle == 180){
-    		direction = -1;
+    	if (targetRotateAngle == 0) {
+    		if ((currentAngle - 0) <= (currentAngle - 360)){
+    			direction = -1;
+    		} else if ((currentAngle - 0) >= (currentAngle - 360)){
+    			direction = 1;
+    		}
+    	} else if (targetRotateAngle == 180) {
+    		if ((currentAngle - 180) <= 0){
+    			direction = 1;
+    		} else if ((currentAngle - 180) > 0){
+    			direction = -1;
+    		}
     	}
     	currentLeftAngle = Math.abs((Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 -targetAngle);
     	if (currentLeftAngle >= RobotMap.DriveGyroRotateLimitAngle){
