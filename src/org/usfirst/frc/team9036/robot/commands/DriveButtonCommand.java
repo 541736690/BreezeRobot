@@ -5,6 +5,7 @@ import org.usfirst.frc.team9036.robot.RobotMap;
 import org.usfirst.frc.team9036.robot.subsystems.DriveSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveButtonCommand extends Command {
 	int direction=DriveSubsystem.driveDirection;
@@ -20,15 +21,18 @@ public class DriveButtonCommand extends Command {
     	boolean isLeftHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.LeftDriveButtonID);
     	boolean isRightHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.RightDriveButtonID);
         double lefttrigger = Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveLeftAxis);
-        double righttrigger = -Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveRightAxis);
-    	double finaltrigger = Math.abs(lefttrigger+righttrigger);
+        double righttrigger = Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveRightAxis);
+    	double finaltrigger = lefttrigger - righttrigger;
         if (isLeftHeld && isRightHeld) {
     	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed * finaltrigger, 0);
     	} else if (isLeftHeld) {    
     	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed * finaltrigger, direction * RobotMap.DriveButtonMaxCurve);
     	} else if (isRightHeld) {
     	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed * finaltrigger, -direction * RobotMap.DriveButtonMaxCurve);
-    	}    
+    	} else {
+    		Robot.driveSubsystem.stop();
+    	}
+        SmartDashboard.putNumber("direction", direction);
     }
 
     protected boolean isFinished() {

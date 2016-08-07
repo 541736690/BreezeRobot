@@ -52,24 +52,26 @@ public class RobotMap {
 
 	public static final int LeftDriveButtonID = 5;
 	public static final int RightDriveButtonID = 6;
+	public static final int LeftTurningButtonID = 3;
+	public static final int RightTurningButtonID = 2;
+	public static final int ForwardTurningButtonID = 4;
+	public static final int BackwardTurningButtonID = 1;
 	
 	// Drive Joystick Axis
 	public static final int DriveLeftAxis = 2;
 	public static final int DriveRightAxis = 3;
-	public static final int GyroTurningAxis = 4;
+	public static final int GyroTurningAxis = 9;
     public static final int DriveSpeedAxis = 6;
-	public static final int DriveDirectionAxis = 9;
+//	public static final int DriveDirectionAxis = 9;
 	
 	// Shooter Joystick Button
 	public static final int BallCollectorButtonID = 3;
-	public static final int LeftBallShooterButtonID = 4;
-	public static final int RightBallShooterButtonID = 5;
-	public static final int LeftTurningButtonID = 7;
-	public static final int RightTurningButtonID = 8;
-	public static final int ForwardTurningButtonID = 1;
-	public static final int BackwardTurningButtonID = 5;
+	public static final int LeftBallShooterButtonID = 5;
+	public static final int RightBallShooterButtonID = 6;
+	
 	
     // Shooter Joystick Axis
-	public static final int BallShootererAdjustingAxisPort = 1;
+	public static final int BallShootererAdjustingAxis = 9;
+	public static final int BallAutoAimAxis = 10;
 }
 

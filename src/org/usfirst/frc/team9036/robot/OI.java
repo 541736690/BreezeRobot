@@ -3,6 +3,7 @@ package org.usfirst.frc.team9036.robot;
 import org.usfirst.frc.team9036.robot.commands.BallCollectorCommand;
 import org.usfirst.frc.team9036.robot.commands.DriveAdjustTurningCommand;
 import org.usfirst.frc.team9036.robot.commands.DriveDirectTurningCommand;
+import org.usfirst.frc.team9036.robot.commands.DriveDirectionChangeCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -30,6 +31,7 @@ public class OI {
 		backwardTurningButton.whenPressed(new DriveAdjustTurningCommand(180));
 		leftTurningButton.whenPressed(new DriveDirectTurningCommand(-90));
 		rightTurningButton.whenPressed(new DriveDirectTurningCommand(90));
+		gyroTurningAxis.whenPressed(new DriveDirectionChangeCommand());
 		
 	}
 }
