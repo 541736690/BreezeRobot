@@ -4,8 +4,6 @@ import com.kauailabs.navx.frc.AHRS;
 import org.usfirst.frc.team9036.robot.Robot;
 import org.usfirst.frc.team9036.robot.RobotMap;
 import org.usfirst.frc.team9036.robot.commands.DriveButtonCommand;
-import org.usfirst.frc.team9036.robot.commands.DriveStickCommand;
-
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
@@ -39,24 +37,6 @@ public class DriveSubsystem extends Subsystem {
     
     public void arcadeDrive(double moveValue, double rotateValue) {
     	robotDrive.arcadeDrive(moveValue, rotateValue);
-    }
-    
-    public void customDrive(Joystick joystick) {
-    	this.customDrive(joystick, true);
-    }
-    
-    public void customDrive(Joystick joystick, boolean safetyEnabled) {
-    	robotDrive.arcadeDrive(
-    			joystick.getRawAxis(RobotMap.DriveSpeedAxis) 
-    			* (safetyEnabled 
-    					? joystick.getRawAxis(2) * RobotMap.DriveSafetyRate + RobotMap.DriveSafetyOffset 
-    					: 1
-    			), 
-    			joystick.getRawAxis(RobotMap.DriveDirectionAxis) * (safetyEnabled 
-    					? joystick.getRawAxis(2) * RobotMap.DriveSafetyRate + RobotMap.DriveSafetyOffset 
-    					: 1
-    			), 
-    			true);
     }
     
     public void setDirectionInversed(boolean inversed) {
