@@ -25,7 +25,7 @@ public class DriveAdjustTurningCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double CurrentAngle = Math.abs(Robot.gyroSubsystem.getAngle() % 360);
+    	double CurrentAngle = (Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 ;
     	double direction = 0;
     	if (CurrentAngle <180 && targetAngle == 0){
     		direction = -1;
@@ -36,7 +36,7 @@ public class DriveAdjustTurningCommand extends Command {
     	} else if (CurrentAngle >= 180 && targetAngle == 180){
     		direction = -1;
     	}
-    	double currentLeftAngle = Math.abs(Robot.gyroSubsystem.getAngle() % 360-targetAngle);
+    	double currentLeftAngle = Math.abs((Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 -targetAngle);
     	if (currentLeftAngle >= RobotMap.DriveGyroRotateLimitAngle){
 			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * RobotMap.DriveGyroRotateMaxSpeed);
 		}else if (currentLeftAngle < RobotMap.DriveGyroRotateLimitAngle && currentLeftAngle > 0){

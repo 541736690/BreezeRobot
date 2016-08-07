@@ -25,8 +25,8 @@ public class DriveDirectTurningCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double direction = targetTurningAngle / 90;
-    	double targetAngle = Math.abs(Robot.gyroSubsystem.getAngle() % 360 + targetTurningAngle);
-    	double currentLeftAngle = Math.abs(Robot.gyroSubsystem.getAngle() % 360 - targetAngle);
+    	double targetAngle = (Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 + targetTurningAngle;
+    	double currentLeftAngle = Math.abs((Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 - targetAngle);
     	if (currentLeftAngle >= RobotMap.DriveGyroRotateLimitAngle){
 			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * RobotMap.DriveGyroRotateMaxSpeed);
 		}else if (currentLeftAngle < RobotMap.DriveGyroRotateLimitAngle && currentLeftAngle > 0){
