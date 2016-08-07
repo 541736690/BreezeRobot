@@ -1,7 +1,5 @@
 package org.usfirst.frc.team9036.robot.commands;
 
-import org.usfirst.frc.team9036.robot.Robot;
-import org.usfirst.frc.team9036.robot.RobotMap;
 import org.usfirst.frc.team9036.robot.subsystems.DriveSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
