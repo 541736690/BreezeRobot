@@ -15,14 +15,7 @@ public class DebugCommand extends Command {
     }
 
     protected void execute() {
-    	for (int i = 1; i <= 15; i++){
-    		String s = "mainButton" + i;
-    		SmartDashboard.putBoolean(s, Robot.oi.mainJoystick.getRawButton(i));
-    	}
-    	for (int i = 1;i <= 15; i++){
-    		String s = "shootButton" + i;
-    		SmartDashboard.putBoolean(s, Robot.oi.shootJoystick.getRawButton(i));
-    	}
+    	
     }
 
     protected boolean isFinished() {
