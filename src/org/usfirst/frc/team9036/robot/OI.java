@@ -13,9 +13,9 @@ public class OI {
 	public Joystick mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 	public Joystick shootJoystick = new Joystick(RobotMap.ShooterJoystickPort);
 	
-	public Button gyroTurningAxis = new JoystickButton(mainJoystick, RobotMap.GyroTurningAxisPort);
+	public Button gyroTurningAxis = new JoystickButton(mainJoystick, RobotMap.GyroTurningAxis);
 	
-	public Button ballCollectorButton = new JoystickButton(shootJoystick, RobotMap.BallCollectorMotor);
+	public Button ballCollectorButton = new JoystickButton(shootJoystick, RobotMap.BallCollectorMotorPort);
 
 	public OI() {
 		ballCollectorButton.whileHeld(new BallCollectorCommand());

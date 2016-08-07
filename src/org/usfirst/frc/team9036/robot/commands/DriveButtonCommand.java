@@ -19,8 +19,8 @@ public class DriveButtonCommand extends Command {
     protected void execute() {
     	boolean isLeftHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.LeftDriveButtonID);
     	boolean isRightHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.RightDriveButtonID);
-        double lefttrigger = Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveLeftAxisPort);
-        double righttrigger = -Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveRightAxisPort);
+        double lefttrigger = Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveLeftAxis);
+        double righttrigger = -Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveRightAxis);
     	double finaltrigger = Math.abs(lefttrigger+righttrigger);
         if (isLeftHeld && isRightHeld) {
     	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed * finaltrigger, 0);
@@ -39,7 +39,7 @@ public class DriveButtonCommand extends Command {
     	Robot.driveSubsystem.stop();
     }
 
-    protected void interruptted() {
+    protected void interrupted() {
     	end();
     }
 }
