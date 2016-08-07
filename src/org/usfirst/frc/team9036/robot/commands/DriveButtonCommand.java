@@ -28,7 +28,9 @@ public class DriveButtonCommand extends Command {
     	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed * finaltrigger, direction * RobotMap.DriveButtonMaxCurve);
     	} else if (isRightHeld) {
     	    Robot.driveSubsystem.drive(RobotMap.DriveButtonMaxSpeed * finaltrigger, -direction * RobotMap.DriveButtonMaxCurve);
-    	}    
+    	} else {
+    		Robot.driveSubsystem.stop();
+    	}
     }
 
     protected boolean isFinished() {
