@@ -47,6 +47,7 @@ def init_ntable():
 
 def main():
     global capture
+    init_ntable()
     capture = cv2.VideoCapture(0)
     try:
         camserver.serve(config.server, do_capture)
