@@ -9,13 +9,13 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveDirectTurningCommand extends Command {
-	double targetAngle = 0;
+	double targetTurningAngle = 0;
 	double driveDirection = Robot.driveSubsystem.driveDirection;
     public DriveDirectTurningCommand(double i) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveSubsystem);
-    	this.targetAngle = i;
+    	this.targetTurningAngle = i;
     }
 
     // Called just before this Command runs the first time
@@ -24,22 +24,9 @@ public class DriveDirectTurningCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double CurrentAngle = Math.abs(Robot.gyroSubsystem.getAngle() % 360);
-    	double direction = 0;
-    	if (CurrentAngle <90 && targetAngle == 90){
-    		direction = 1;
-    	} else if (CurrentAngle <= 270 && CurrentAngle >=90 && targetAngle == 90){
-    		direction = -1;
-    	} else if (CurrentAngle > 270 && CurrentAngle < 360 && targetAngle == 90){
-    		direction = 1;
-    	} else if (CurrentAngle <90 && targetAngle == 270){
-    		direction = -1;
-    	} else if (CurrentAngle <= 270 && CurrentAngle >=90 && targetAngle == 270){
-    		direction = 1;
-    	} else if (CurrentAngle > 270 && CurrentAngle < 360 && targetAngle == 270){
-    		direction = -1;
-    	} 
-    	double currentLeftAngle = Math.abs(Robot.gyroSubsystem.getAngle() % 360-targetAngle);
+    	double direction = targetTurningAngle / 90;
+    	double targetAngle = Math.abs(Robot.gyroSubsystem.getAngle() % 360 + targetTurningAngle);
+    	double currentLeftAngle = Math.abs(Robot.gyroSubsystem.getAngle() % 360 - targetAngle);
     	if (currentLeftAngle >= RobotMap.DriveGyroRotateLimitAngle){
 			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * RobotMap.DriveGyroRotateMaxSpeed);
 		}else if (currentLeftAngle < RobotMap.DriveGyroRotateLimitAngle && currentLeftAngle > 0){
