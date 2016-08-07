@@ -40,7 +40,7 @@ def do_capture(self):
 
 def init_ntable():
     global ntable
-    NetworkTable.setTeam(config.team)
+    NetworkTable.setTeam(config["team"])
     NetworkTable.initialize()
 
     ntable = NetworkTable.getTable('vision');
