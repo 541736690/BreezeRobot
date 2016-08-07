@@ -40,7 +40,9 @@ def do_capture(self):
 
 def init_ntable():
     global ntable
-    NetworkTable.setTeam(config.server["team"])
+    NetworkTable.setIPAddress(config.server["rioAddress"])
+    NetworkTable.setClientMode()
+
     NetworkTable.initialize()
 
     ntable = NetworkTable.getTable('vision');

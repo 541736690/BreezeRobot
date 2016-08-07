@@ -1,5 +1,5 @@
 server = {
     "host": "",
     "port": 8080,
-    "team": 9036
+    "rioAddress": "roboRIO-9036-FRC.local"
 }
