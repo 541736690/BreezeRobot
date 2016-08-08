@@ -11,8 +11,11 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveAdjustTurningCommand extends Command {
 	double targetRotateAngle = 0;
+	double targetAngle1 = 0;
+	double targetAngle2 = 0;
 	double targetAngle = 0;
 	double currentLeftAngle = 0;
+	double currentAngle = 0;
 	int driveDirection = DriveSubsystem.driveDirection;
     public DriveAdjustTurningCommand(double i) {
         // Use requires() here to declare subsystem dependencies
@@ -27,25 +30,27 @@ public class DriveAdjustTurningCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double currentAngle = (Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 ;
-    	double direction = 0;
-    	if (targetRotateAngle == 0) {
-    		if ((currentAngle - 0) <= (currentAngle - 360)){
-    			direction = -1;
-    		} else if ((currentAngle - 0) >= (currentAngle - 360)){
-    			direction = 1;
-    		}
-    	} else if (targetRotateAngle == 180) {
-    		if ((currentAngle - 180) <= 0){
-    			direction = 1;
-    		} else if ((currentAngle - 180) > 0){
-    			direction = -1;
-    		}
+    	int direction = 0;
+    	currentAngle = Robot.gyroSubsystem.getAngle();
+    	if (currentAngle >= 0){
+    		targetAngle1 = targetAngle + 360 * Math.floor(currentAngle / 360);
+    		targetAngle2 = targetAngle1 + 360;
+    		direction = 1;
+    	} else {
+    		targetAngle1 = targetAngle + 360 * Math.floor(currentAngle / 360); 
+    		targetAngle2 = targetAngle1 - 360;
+    		direction = -1;
     	}
-    	currentLeftAngle = Math.abs((Robot.gyroSubsystem.getAngle() % 360 + 360) % 360 -targetAngle);
-    	if (currentLeftAngle >= RobotMap.DriveGyroRotateLimitAngle){
+    	if (Math.abs(currentAngle - targetAngle1) >= Math.abs(targetAngle2 - currentAngle)){
+    		direction = direction * 1;
+    		currentLeftAngle = Math.abs(targetAngle2 - currentAngle);
+    	} else {
+    		direction = direction * -1;
+    		currentLeftAngle = Math.abs(targetAngle1 - currentAngle);
+    	}
+    	if (currentLeftAngle >= RobotMap.DriveGyroRotateLimitAngle) {
 			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * RobotMap.DriveGyroRotateMaxSpeed);
-		}else if (currentLeftAngle < RobotMap.DriveGyroRotateLimitAngle && currentLeftAngle > 0){
+		} else if (currentLeftAngle < RobotMap.DriveGyroRotateLimitAngle && currentLeftAngle > 0){
 			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * currentLeftAngle / (RobotMap.DriveGyroRotateLimitAngle * 2) + 0.5);
 		}
     }
