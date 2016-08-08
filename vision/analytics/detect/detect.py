@@ -36,10 +36,10 @@ def filter_contours(contours, hierarchy):
         hull = cv2.convexHull(cnt)
         hull_area = cv2.contourArea(hull)
         solidity = float(area) / hull_area
-        x,y,w,h = cv2.boundingRect(cnt)
+        x, y, w, h = cv2.boundingRect(cnt)
         aspect_ratio = float(w) / h
 
-        if cx >= 10 and cx <= 1000 and cy >= 10 and cy <= 300 and area >= 100 and hier[3] == -1 and solidity <= 0.60 \
+        if w >= 10 and w <= 1000 and h >= 10 and h <= 300 and area >= 100 and hier[3] == -1 and solidity <= 0.60 \
             and 0.3 <= aspect_ratio and aspect_ratio <= 5:
             yield { "contour": cnt, "cx": cx, "cy": cy, "area": area, "solidity": solidity, "aspect_ratio": aspect_ratio }
 
@@ -49,7 +49,7 @@ def filter_target(contours, hierarchy):
     if len(targets) > 0:
         __target = min(targets, key=operator.itemgetter('solidity'))
         selected = filter(lambda t: abs(t["solidity"] - __target["solidity"]) <= 0.05, targets)
-    return list(map(operator.itemgetter("contour"), targets),), list(map(operator.itemgetter("contour"), selected))
+    return targets, selected
 
 def do_detect(img):
     mask = get_hls_image(img)
@@ -58,7 +58,17 @@ def do_detect(img):
 
     contours, targets = filter_target(contours, hierarchy)
 
-    cv2.drawContours(img, contours, -1, (0,255,0), 3)
-    cv2.drawContours(img, targets, -1, (0,0,255), 3)
+    contours = list(contours)
+    targets = list(targets)
+    __contours = list(map(operator.itemgetter("contour"), contours))
+    __targets = list(map(operator.itemgetter("contour"), targets))
 
-    return img, len(contours)
+    cv2.drawContours(img, __contours, -1, (0, 255, 0), 3)
+    cv2.drawContours(img, __targets, -1, (0, 0, 255), 3)
+
+    data = { "cX": -1, "cY": -1 } if len(__targets) is 0 else {
+        "cX": targets[0]["cx"],
+        "cY": targets[0]["cy"]
+    }
+
+    return img, len(contours), data

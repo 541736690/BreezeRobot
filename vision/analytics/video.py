@@ -8,7 +8,7 @@ import time
 import config
 import subprocess
 
-from utils import camserver
+from utils import camserver, const
 from detect import detect
 
 logging.basicConfig(level=logging.DEBUG)
@@ -17,35 +17,46 @@ def do_capture(self):
     if capture.isOpened():
         ret, frame = capture.read()
         if ret:
-            img, cnt = detect.do_detect(frame)
-            ntable.putNumber("auto_enabled", 0)
-            ntable.putNumber("manual_exposure", 0)
+            img, cnt = (frame, 0)
+            if ntable.getNumber("auto_enabled", 2) == const.VISION_COMMAND_ENABLED:
+                img, cnt, __data = detect.do_detect(frame)
+                push_data = {}
+                cX, cY = (__data["cX"], __data["cY"])
+                if cX is -1 and cY is -1:
+                    push_data["cX"] = 0
+                    push_data["cY"] = 0
+                else:
+                    push_data["cX"] = (cX - config.camera["cX"]) / config.camera["width"] * 2
+                    push_data["cY"] = (cY - config.camera["cY"]) / config.camera["height"] * 2
+
+                ntable.putNumber("target_angle", const.VISION_COMMAND_ENABLED)
+                ntable.putNumber("robotdrive_status", const.VISION_COMMAND_ENABLED)
+                ntable.putNumber("target_count_number", cnt)
+                ntable.putNumber("target_angle_number", data["cX"] + data["cY"])
+
+                for k, v in push_data:
+                    ntable.putNumber(k, v)
+
             if cnt == 0:
-                ntable.putNumber("target_count", 2)
+                ntable.putNumber("target_count", const.VISION_COMMAND_DISABLED)
             elif cnt == 1:
-                ntable.putNumber("target_count", 0)
+                ntable.putNumber("target_count", const.VISION_COMMAND_ENABLED)
             elif cnt >= 2:
-                ntable.putNumber("target_count", 1)
+                ntable.putNumber("target_count", const.VISION_COMMAND_IN_PROGRESS)
 
-            ntable.putNumber("target_angle", 0)
-            ntable.putNumber("robotdrive_status", 0)
-            ntable.putNumber("target_count_number", cnt)
-            ntable.putNumber("target_angle_number", 0)
-
-
-            return cv2.resize(img, (320, 240))
+            return cv2.resize(img, (config.camera["r_width"], config.camera["r_height"]))
         else:
             return None
     else:
         return None
 
 def onValueChanged(table, key, value, isNew):
-    if key == "manual_exposure":
+    if table is "vision" and key is "manual_exposure":
         if value == 0:
-            subprocess.run("v4l2-ctl -c exposure_auto=1", shell=True, check=False)
-            subprocess.run("v4l2-ctl -c exposure_absolute=5", shell=True, check=False)
+            subprocess.call("v4l2-ctl -c exposure_auto=1", shell=True)
+            subprocess.call("v4l2-ctl -c exposure_absolute=5", shell=True)
         elif value == 1:
-            subprocess.run("v4l2-ctl -c exposure_auto=3", shell=True, check=False)
+            subprocess.call("v4l2-ctl -c exposure_auto=3", shell=True)
 
 
 def init_ntable():
@@ -59,11 +70,20 @@ def init_ntable():
 
     ntable.addTableListener(onValueChanged)
 
+def init_modules():
+    subprocess.call("v4l2-ctl -c exposure_auto=3", shell=True)
+    ntable.putNumber("auto_enabled", const.VISION_COMMAND_DISABLED);
+    ntable.putNumber("manual_exposure", const.VISION_COMMAND_DISABLED);
+
+
 def main():
     global capture
     init_ntable()
-    subprocess.run("v4l2-ctl -c exposure_auto=3", shell=True, check=False)
+    init_modules()
     capture = cv2.VideoCapture(0)
+    capture.set(cv2.CAP_PROP_FRAME_WIDTH, config.camera["width"])
+    capture.set(cv2.CAP_PROP_FRAME_HEIGHT, config.camera["height"])
+
     try:
         camserver.serve(config.server, do_capture)
     except KeyboardInterrupt:

@@ -29,13 +29,15 @@ def main():
         if not img is None:
             # img = cv2.resize(img, (1280, 720))
 
-            img, cnt = detect.do_detect(img)
-            cv2.imwrite("TestData/Result/res%d.png" % (i), img)
+            img, cnt, __data = detect.do_detect(img)
+            # cv2.imwrite("TestData/Result/res%d.png" % (i), img)
 
             print("%d/%d" % (i + 1, MAX_RANGE))
 
             data.append(cnt)
             __cnt = __cnt + 1
+
+            # print(__data)
 
             cv2.resize(img, (320,240))
 
