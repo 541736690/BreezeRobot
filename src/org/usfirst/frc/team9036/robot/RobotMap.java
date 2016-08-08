@@ -73,10 +73,11 @@ public class RobotMap {
 	
     // Shooter Joystick Axis
 	public static final int BallShootererAdjustingAxis = 9;
-	public static final int BallAutoAimAxis = 10;
+	public static final int BallAutoAimButtonID = 1;
 	
 	// Vision Set
 	public static final int VisionCommandEnabled = 0;
 	public static final int VisionCommandDisabled = 2;
+	public static final int VisionCommandInProgress = 1;
 }
 
