@@ -33,7 +33,6 @@ public class RobotMap {
 	public static double VisionTolerance = 0.02;
 	public static double VisionSpeed = 0.4;
 	
-	
 	// Joystick Settings
 	public static final int DriverJoystickPort = 0;
 	public static final int ShooterJoystickPort = 1;
