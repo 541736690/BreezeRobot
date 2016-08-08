@@ -4,6 +4,7 @@ import org.usfirst.frc.team9036.robot.commands.BallCollectorCommand;
 import org.usfirst.frc.team9036.robot.commands.DriveAdjustTurningCommand;
 import org.usfirst.frc.team9036.robot.commands.DriveDirectTurningCommand;
 import org.usfirst.frc.team9036.robot.commands.DriveDirectionChangeCommand;
+import org.usfirst.frc.team9036.robot.commands.VisionAutoAimCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -24,6 +25,7 @@ public class OI {
 	public Button rightTurningButton = new JoystickButton(mainJoystick, RobotMap.RightTurningButtonID);
 	
 	public Button ballCollectorButton = new JoystickButton(shootJoystick, RobotMap.BallCollectorMotorPort);
+	public Button ballAutoAimButton = new JoystickButton(shootJoystick, RobotMap.BallAutoAimButtonID);
 
 	public OI() {
 		ballCollectorButton.whileHeld(new BallCollectorCommand());
@@ -32,6 +34,7 @@ public class OI {
 		leftTurningButton.whenPressed(new DriveDirectTurningCommand(-90));
 		rightTurningButton.whenPressed(new DriveDirectTurningCommand(90));
 		gyroTurningAxis.whenPressed(new DriveDirectionChangeCommand());
+		ballAutoAimButton.whenPressed(new VisionAutoAimCommand());
 		
 	}
 }
