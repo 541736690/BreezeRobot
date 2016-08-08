@@ -4,7 +4,6 @@ package org.usfirst.frc.team9036.robot;
 import org.usfirst.frc.team9036.robot.commands.DriveAutoCommand;
 import org.usfirst.frc.team9036.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.GyroSubsystem;
-import org.usfirst.frc.team9036.robot.subsystems.BallArmSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallCollectorSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallShooterSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.DebugSubsystem;
@@ -26,7 +25,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
-	public static final BallArmSubsystem ballArmSubsystem = new BallArmSubsystem();
 	public static final BallCollectorSubsystem ballCollectorSubsystem = new BallCollectorSubsystem();
 	public static final BallShooterSubsystem ballShooterSubsystem = new BallShooterSubsystem();
 	public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();

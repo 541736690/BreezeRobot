@@ -7,15 +7,18 @@ import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BallShooterSubsystem extends Subsystem {
-	VictorSP ballShooterMotor = new VictorSP(RobotMap.BallShooterMotorPort);
+	VictorSP leftBallShooterMotor = new VictorSP(RobotMap.LeftBallShooterMotorPort);
+	VictorSP rightBallShooterMotor = new VictorSP(RobotMap.RightBallShooterMotorPort);
 	
     public void initDefaultCommand() {
     }
     public void start() {
-    	ballShooterMotor.set(RobotMap.BallShooterMotorSpeed);
+    	leftBallShooterMotor.set(RobotMap.LeftBallShooterMotorSpeed);
+    	rightBallShooterMotor.set(RobotMap.RightBallShooterMotorSpeed);
     }
     public void stop(){
-    	ballShooterMotor.stopMotor();
+    	leftBallShooterMotor.stopMotor();
+    	rightBallShooterMotor.stopMotor();
     }
 }
 

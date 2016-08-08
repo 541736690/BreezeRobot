@@ -14,12 +14,14 @@ public class RobotMap {
 	
 	
 	// Other Motors
-	public static final int BallArmMotorPort = 6;
-	public static final int BallCollectorMotorPort = 5;
-	public static final int BallShooterMotorPort = 7;
+	public static final int BallCollectorMotorPort1 = 5;
+	public static final int BallCollectorMotorPort2 = 6;
+	public static final int LeftBallShooterMotorPort = 7;
+	public static final int RightBallShooterMotorPort = 8;
 	
 	// Motor Settings
-	public static double BallShooterMotorSpeed = 1;
+	public static double LeftBallShooterMotorSpeed = 1;
+	public static double RightBallShooterMotorSpeed = -1;
 	public static double BallArmMotorSpeed = 1.0;
 	public static double BallCollectorMotorSpeed = 1.0;
 	
@@ -69,11 +71,12 @@ public class RobotMap {
 	public static final int BallCollectorButtonID = 3;
 	public static final int LeftBallShooterButtonID = 5;
 	public static final int RightBallShooterButtonID = 6;
+	public static final int BallAutoAimButtonID = 1;
 	
 	
     // Shooter Joystick Axis
 	public static final int BallShootererAdjustingAxis = 9;
-	public static final int BallAutoAimButtonID = 1;
+
 	
 	// Vision Set
 	public static final int VisionCommandEnabled = 0;

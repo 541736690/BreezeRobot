@@ -24,8 +24,9 @@ public class OI {
 	public Button leftTurningButton = new JoystickButton(mainJoystick, RobotMap.LeftTurningButtonID);
 	public Button rightTurningButton = new JoystickButton(mainJoystick, RobotMap.RightTurningButtonID);
 	
-	public Button ballCollectorButton = new JoystickButton(shootJoystick, RobotMap.BallCollectorMotorPort);
+	public Button ballCollectorButton = new JoystickButton(shootJoystick, RobotMap.BallCollectorButtonID);
 	public Button ballAutoAimButton = new JoystickButton(shootJoystick, RobotMap.BallAutoAimButtonID);
+	
 
 	public OI() {
 		ballCollectorButton.whileHeld(new BallCollectorCommand());
