@@ -13,11 +13,11 @@ public class BallCollectorSubsystem extends Subsystem {
 	}
 	
 	public void collect(){
-    	ballCollectorMotor1.set(RobotMap.BallCollectorMotorSpeed);
+    	ballCollectorMotor.set(RobotMap.BallCollectorMotorSpeed);
     }
 	
 	public void stop(){
-		ballCollectorMotor1.stopMotor();
+		ballCollectorMotor.stopMotor();
 	}
 	
     public void initDefaultCommand() {
