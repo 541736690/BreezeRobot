@@ -42,6 +42,7 @@ public class RobotMap {
 	public static final double DriveGyroAutoRotateDelta = 180;
 	public static final double DriveDirectionTolerance = 5;
 	public static final double DriveDirectionMinSpeed = 0.3;
+	public static final double DriveGyroTolerance = 5;
 	public static final double DriveGyroRotateLimitAngle = 20;
 	
 	public static final int DriverJoystickPort = 0;
