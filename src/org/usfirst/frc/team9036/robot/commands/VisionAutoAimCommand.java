@@ -27,12 +27,19 @@ public class VisionAutoAimCommand extends Command {
 
     // Called repeatedly when thiable
     protected void execute(){
-    	double distanceX = visionTable.getNumber("distanceX", 0);
-    	double distanceY = visionTable.getNumber("distanceY", 0);
-    	if (distanceX < 0){
-
-    	} else if (distanceX > 0){
-    		
+    	double cX = visionTable.getNumber("cX", 0);
+    	double cY = visionTable.getNumber("cY", 0);
+    	double targetRotate = Math.abs(cX);
+    	double speed = 0;
+    	if (targetRotate >= 0.4){
+    		speed = 0.5;
+    	} else if (targetRotate < 0.4 && targetRotate >= 0){
+    		speed = 0.3;
+    	}
+    	if (cX < -RobotMap.DriveGyroTolerance){
+    		Robot.driveSubsystem.drive(0, speed);
+    	} else if (cX > RobotMap.DriveGyroTolerance){
+    		Robot.driveSubsystem.drive(0, -speed);
     	} else {
     		Robot.driveSubsystem.stop();
     	}
