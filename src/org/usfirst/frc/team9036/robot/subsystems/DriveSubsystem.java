@@ -1,45 +1,53 @@
 package org.usfirst.frc.team9036.robot.subsystems;
 
-import com.kauailabs.navx.frc.AHRS;
-import org.usfirst.frc.team9036.robot.Robot;
 import org.usfirst.frc.team9036.robot.RobotMap;
-import org.usfirst.frc.team9036.robot.commands.DriveButtonCommand;
-import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
-import edu.wpi.first.wpilibj.Joystick;
+import org.usfirst.frc.team9036.robot.commands.drive.ButtonDriveCommand;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveSubsystem extends Subsystem {
+	VictorSP driveFrontLeft;
+	VictorSP driveFrontRight;
+	VictorSP driveRearLeft;
+	VictorSP driveRearRight;
+	RobotDrive robotDrive;
 	
-	public static int driveDirection = 1;
+	boolean CurrentDriveDirection;
 	
-	VictorSP driveFrontLeft = new VictorSP(RobotMap.DriverFrontLeftPort);
-	VictorSP driveFrontRight = new VictorSP(RobotMap.DriverFrontRightPort);
-	VictorSP driveRearLeft = new VictorSP(RobotMap.DriverRearLeftPort);
-	VictorSP driveRearRight = new VictorSP(RobotMap.DriverRearRightPort);
-	RobotDrive robotDrive = new RobotDrive(driveFrontLeft, driveRearLeft, driveFrontRight, driveRearRight);
+	public DriveSubsystem() {
+		driveFrontLeft = new VictorSP(RobotMap.DriverFrontLeftPort);
+		driveFrontRight = new VictorSP(RobotMap.DriverFrontRightPort);
+		driveRearLeft = new VictorSP(RobotMap.DriverRearLeftPort);
+		driveRearRight = new VictorSP(RobotMap.DriverRearRightPort);
+		
+		robotDrive = new RobotDrive(driveFrontLeft, driveRearLeft, driveFrontRight, driveRearRight);
+		
+		CurrentDriveDirection = false;
+	}
 	
     public void initDefaultCommand() {
-    	setDefaultCommand(new DriveButtonCommand());
-    }
-    
-    public void drive(double speed, double curve) {
-    	robotDrive.drive(speed, curve);
-    }
-    
-    public void arcadeDrive(Joystick joystick) {
-    	robotDrive.arcadeDrive(joystick);
+    	setDefaultCommand(new ButtonDriveCommand());
     }
     
     public void arcadeDrive(double moveValue, double rotateValue) {
-    	robotDrive.arcadeDrive(moveValue, rotateValue);
+    	arcadeDrive(moveValue, rotateValue, RobotMap.IsSquareInput);
     }
     
-    public void setDirectionInversed(boolean inversed) {
+    public void arcadeDrive(double moveValue, double rotateValue, boolean isSquareInput) {
+    	robotDrive.arcadeDrive(moveValue, rotateValue, isSquareInput);
+    }
+    
+    public void tankDrive(double leftValue, double rightValue) {
+    	tankDrive(leftValue, rightValue, RobotMap.IsSquareInput);
+    }
+    
+    public void tankDrive(double leftValue, double rightValue, boolean isSquareInput) {
+    	robotDrive.tankDrive(leftValue, rightValue, isSquareInput);
+    }
+    
+    private void setDirectionInversed(boolean inversed) {
     	robotDrive.setInvertedMotor(MotorType.kFrontLeft, inversed);
     	robotDrive.setInvertedMotor(MotorType.kFrontRight, inversed);
     	robotDrive.setInvertedMotor(MotorType.kRearLeft, inversed);
@@ -48,6 +56,15 @@ public class DriveSubsystem extends Subsystem {
     
     public void stop() {
     	robotDrive.stopMotor();
+    }
+    
+    public void setDriveDirection(boolean isInversed) {
+    	this.CurrentDriveDirection = isInversed;
+    	this.setDirectionInversed(this.getDriveDirection());
+    }
+    
+    public boolean getDriveDirection() {
+    	return this.CurrentDriveDirection ^ RobotMap.IsDirectionInversed;
     }
 }
 
