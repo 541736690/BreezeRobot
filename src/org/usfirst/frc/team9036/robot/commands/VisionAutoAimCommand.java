@@ -37,11 +37,14 @@ public class VisionAutoAimCommand extends Command {
     		speed = 0.3;
     	}
     	if (cX < -RobotMap.DriveGyroTolerance){
-    		Robot.driveSubsystem.drive(0, speed);
+    	//	Robot.driveSubsystem.drive(0, speed);
+    		visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandInProgress);
     	} else if (cX > RobotMap.DriveGyroTolerance){
-    		Robot.driveSubsystem.drive(0, -speed);
+    	//	Robot.driveSubsystem.drive(0, -speed);
+    		visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandInProgress);
     	} else {
-    		Robot.driveSubsystem.stop();
+    	//	Robot.driveSubsystem.stop();
+    		visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandEnabled);
     	}
     }
 
@@ -54,6 +57,7 @@ public class VisionAutoAimCommand extends Command {
     protected void end() {
     	visionTable.putNumber("manual_exposure", RobotMap.VisionCommandDisabled);
     	visionTable.putNumber("auto_enabled", RobotMap.VisionCommandDisabled);
+    	visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandDisabled);
     }
 
     // Called when another command which requires one or more of the same

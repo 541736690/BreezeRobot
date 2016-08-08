@@ -78,5 +78,6 @@ public class RobotMap {
 	// Vision Set
 	public static final int VisionCommandEnabled = 0;
 	public static final int VisionCommandDisabled = 2;
+	public static final int VisionCommandInProgress = 1;
 }
 
