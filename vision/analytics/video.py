@@ -80,7 +80,7 @@ def main():
     global capture
     init_ntable()
     init_modules()
-    capture = cv2.VideoCapture(0)
+    capture = cv2.VideoCapture(config.camera["id"])
     capture.set(cv2.CAP_PROP_FRAME_WIDTH, config.camera["width"])
     capture.set(cv2.CAP_PROP_FRAME_HEIGHT, config.camera["height"])
 
