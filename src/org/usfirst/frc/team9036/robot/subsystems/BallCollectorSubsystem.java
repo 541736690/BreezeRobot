@@ -7,12 +7,13 @@ import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BallCollectorSubsystem extends Subsystem {
-	VictorSP ballCollectorMotor= new VictorSP(RobotMap.BallCollectorMotorPort1);
+	VictorSP ballCollectorMotor1 = new VictorSP(RobotMap.BallCollectorMotorPort1);
+	VictorSP ballCollectorMotor2 = new VictorSP(RobotMap.BallCollectorMotorPort2);
 	public void collect(){
-    	ballCollectorMotor.set(RobotMap.BallCollectorMotorSpeed);
+    	ballCollectorMotor1.set(RobotMap.BallCollectorMotorSpeed);
     }
 	public void stop(){
-		ballCollectorMotor.stopMotor();
+		ballCollectorMotor1.stopMotor();
 	}
     public void initDefaultCommand() {
     }

@@ -30,8 +30,8 @@ public class RobotMap {
 	public static final double DriveStickSpeedDelta = 0.1;
 	
 	public static boolean DriveDirectionInversed = true;
-	public static final double DriveButtonMaxSpeed = 0.5;
-	public static final double DriveButtonMaxCurve = 0.5;
+	public static final double DriveButtonMaxSpeed = 1;
+	public static final double DriveButtonMaxCurve = 1;
 	
 	public static final double DriveSpeedDelta = 0.5;
 	public static final double DriveDirectionDelta = 0.5;
@@ -39,11 +39,11 @@ public class RobotMap {
 	public static final double DriveSafetyRate = 0.6;
 	public static final double DriveSafetyOffset = 0.4;
 	
-	public static final double DriveGyroRotateMinSpeed = 0.5;
-	public static final double DriveGyroRotateMaxSpeed = 1;
+	public static final double DriveGyroRotateMinSpeed = 0.4;
+	public static final double DriveGyroRotateMaxSpeed = 0.8;
 	public static final double DriveGyroAutoRotateDelta = 180;
 	public static final double DriveDirectionTolerance = 5;
-	public static final double DriveDirectionMinSpeed = 0.3;
+	public static final double DriveDirectionMinSpeed = 0.5;
 	public static final double DriveGyroTolerance = 5;
 	public static final double DriveGyroRotateLimitAngle = 20;
 	

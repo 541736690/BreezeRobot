@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveButtonCommand extends Command {
-	int direction=DriveSubsystem.driveDirection;
+	
     public DriveButtonCommand() {
     	requires(Robot.driveSubsystem);
     }
@@ -18,6 +18,7 @@ public class DriveButtonCommand extends Command {
     }
 
     protected void execute() {
+    	int direction = DriveSubsystem.driveDirection;
     	boolean isLeftHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.LeftDriveButtonID);
     	boolean isRightHeld = Robot.oi.mainJoystick.getRawButton(RobotMap.RightDriveButtonID);
         double lefttrigger = Robot.oi.mainJoystick.getRawAxis(RobotMap.DriveLeftAxis);
@@ -32,7 +33,7 @@ public class DriveButtonCommand extends Command {
     	} else {
     		Robot.driveSubsystem.stop();
     	}
-        SmartDashboard.putNumber("direction", direction);
+        System.out.println("DRIVING");
     }
 
     protected boolean isFinished() {

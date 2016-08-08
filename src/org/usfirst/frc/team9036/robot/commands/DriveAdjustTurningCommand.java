@@ -5,59 +5,67 @@ import org.usfirst.frc.team9036.robot.RobotMap;
 import org.usfirst.frc.team9036.robot.subsystems.DriveSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class DriveAdjustTurningCommand extends Command {
 	double targetRotateAngle = 0;
-	double targetAngle1 = 0;
-	double targetAngle2 = 0;
-	double targetAngle = 0;
-	double currentLeftAngle = 0;
-	double currentAngle = 0;
+	boolean _isFin = false;
 	int driveDirection = DriveSubsystem.driveDirection;
     public DriveAdjustTurningCommand(double i) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveSubsystem);
+    	i = i % 360;
+    	if (i >= 180) i = i - 360;
     	this.targetRotateAngle = i;
     }
     
+    double final_angle;
+    int direction;
     // Called just before this Command runs the first time
     protected void initialize() {
+    	double __angle = Robot.gyroSubsystem.getAngle();
+    	double __leftAngle = Math.floor(__angle / 360.0) * 360 + this.targetRotateAngle;
+    	double __rightAngle = __leftAngle + 360;
+    	while (__leftAngle > __angle) {
+    		__leftAngle -= 360; __rightAngle -= 360;
+    	}
+    	while (__rightAngle < __angle) {
+    		__rightAngle += 360; __leftAngle += 360;
+    	}
+    	double __leftAngleDelta = Math.abs(__leftAngle - __angle);
+    	double __rightAngleDelta = Math.abs(__rightAngle - __angle);
+    	direction = 0;
+    	if (__leftAngleDelta > __rightAngleDelta) {
+    		direction = 1;
+    		final_angle = __rightAngle;
+    	} else {
+    		direction = -1;
+    		final_angle = __leftAngle;
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	int direction = 0;
-    	currentAngle = Robot.gyroSubsystem.getAngle();
-    	if (currentAngle >= 0){
-    		targetAngle1 = targetAngle + 360 * Math.floor(currentAngle / 360);
-    		targetAngle2 = targetAngle1 + 360;
-    		direction = 1;
-    	} else {
-    		targetAngle1 = targetAngle + 360 * Math.floor(currentAngle / 360); 
-    		targetAngle2 = targetAngle1 - 360;
-    		direction = -1;
+    	double __angleDelta = Math.abs(Robot.gyroSubsystem.getAngle() - final_angle);
+    	if (__angleDelta <= RobotMap.DriveGyroTolerance) {
+    		Robot.driveSubsystem.stop();
+    		this._isFin = true;
     	}
-    	if (Math.abs(currentAngle - targetAngle1) >= Math.abs(targetAngle2 - currentAngle)){
-    		direction = direction * 1;
-    		currentLeftAngle = Math.abs(targetAngle2 - currentAngle);
+    	else if (__angleDelta <= RobotMap.DriveGyroRotateLimitAngle) {
+    		Robot.driveSubsystem.arcadeDrive(0, direction * RobotMap.DriveGyroRotateMinSpeed);
     	} else {
-    		direction = direction * -1;
-    		currentLeftAngle = Math.abs(targetAngle1 - currentAngle);
+    		Robot.driveSubsystem.arcadeDrive(0, direction * RobotMap.DriveGyroRotateMaxSpeed);
     	}
-    	if (currentLeftAngle >= RobotMap.DriveGyroRotateLimitAngle) {
-			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * RobotMap.DriveGyroRotateMaxSpeed);
-		} else if (currentLeftAngle < RobotMap.DriveGyroRotateLimitAngle && currentLeftAngle > 0){
-			Robot.driveSubsystem.arcadeDrive(0, driveDirection * direction * currentLeftAngle / (RobotMap.DriveGyroRotateLimitAngle * 2) + 0.5);
-		}
+    	System.out.println("RUNNING");
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (currentLeftAngle <= RobotMap.DriveDirectionTolerance);
+        return this._isFin;
     }
 
     // Called once after isFinished returns true

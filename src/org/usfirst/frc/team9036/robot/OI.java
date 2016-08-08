@@ -30,11 +30,11 @@ public class OI {
 
 	public OI() {
 		ballCollectorButton.whileHeld(new BallCollectorCommand());
-		forwardTurningButton.whenPressed(new DriveAdjustTurningCommand(0));
-		backwardTurningButton.whenPressed(new DriveAdjustTurningCommand(180));
-		leftTurningButton.whenPressed(new DriveDirectTurningCommand(-90));
-		rightTurningButton.whenPressed(new DriveDirectTurningCommand(90));
-		gyroTurningButton.whenPressed(new DriveDirectionChangeCommand());
+		forwardTurningButton.whileHeld(new DriveAdjustTurningCommand(0));
+		backwardTurningButton.whileHeld(new DriveAdjustTurningCommand(180));
+		leftTurningButton.whileHeld(new DriveDirectTurningCommand(-90));
+		rightTurningButton.whileHeld(new DriveDirectTurningCommand(90));
+		gyroTurningButton.whileHeld(new DriveDirectionChangeCommand());
 		ballAutoAimButton.whileHeld(new VisionAutoAimCommand());
 		
 	}
