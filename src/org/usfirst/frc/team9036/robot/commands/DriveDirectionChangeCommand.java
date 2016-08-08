@@ -14,11 +14,12 @@ public class DriveDirectionChangeCommand extends Command {
     }
 
     protected void initialize() {
+    	visionTable = NetworkTable.getTable("vision");
     	DriveSubsystem.driveDirection = DriveSubsystem.driveDirection * -1;
     	if (DriveSubsystem.driveDirection == 1){
-    		visionTable.putNumber("camera_id", 1);
+    		visionTable.putNumber("camera_id", 0);
     	} else if ( DriveSubsystem.driveDirection == -1){
-    		visionTable.putNumber("camera_id", -1);
+    		visionTable.putNumber("camera_id", 1);
     	}
     }
 

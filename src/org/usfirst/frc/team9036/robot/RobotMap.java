@@ -59,11 +59,11 @@ public class RobotMap {
 	public static final int RightTurningButtonID = 2;
 	public static final int ForwardTurningButtonID = 4;
 	public static final int BackwardTurningButtonID = 1;
+	public static final int GyroTurningButtonID = 9;
 	
 	// Drive Joystick Axis
 	public static final int DriveLeftAxis = 2;
 	public static final int DriveRightAxis = 3;
-	public static final int GyroTurningAxis = 9;
     public static final int DriveSpeedAxis = 6;
 //	public static final int DriveDirectionAxis = 9;
 	

@@ -17,7 +17,7 @@ public class OI {
 	public Joystick mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 	public Joystick shootJoystick = new Joystick(RobotMap.ShooterJoystickPort);
 	
-	public Button gyroTurningAxis = new JoystickButton(mainJoystick, RobotMap.GyroTurningAxis);
+	public Button gyroTurningButton = new JoystickButton(mainJoystick, RobotMap.GyroTurningButtonID);
 	
 	public Button forwardTurningButton = new JoystickButton(mainJoystick, RobotMap.ForwardTurningButtonID);
 	public Button backwardTurningButton = new JoystickButton(mainJoystick, RobotMap.BackwardTurningButtonID);
@@ -34,8 +34,8 @@ public class OI {
 		backwardTurningButton.whenPressed(new DriveAdjustTurningCommand(180));
 		leftTurningButton.whenPressed(new DriveDirectTurningCommand(-90));
 		rightTurningButton.whenPressed(new DriveDirectTurningCommand(90));
-		gyroTurningAxis.whenPressed(new DriveDirectionChangeCommand());
-		ballAutoAimButton.whenPressed(new VisionAutoAimCommand());
+		gyroTurningButton.whenPressed(new DriveDirectionChangeCommand());
+		ballAutoAimButton.whileHeld(new VisionAutoAimCommand());
 		
 	}
 }
