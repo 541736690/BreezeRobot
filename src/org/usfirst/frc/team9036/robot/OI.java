@@ -47,7 +47,6 @@ public class OI {
 		ballAutoAimButton = new JoystickButton(shootJoystick, RobotMap.BallAutoAimButtonID);
 		leftShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.LeftShooterTurningButtonID);
 		rightShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.RightShooterTurningButtonID);
-		testButton = new JoystickButton(shootJoystick, 10);
 		
 		// Main Button Command
 		forwardTurningButton.toggleWhenPressed(new GyroAbsoluteRotateCommand(0));
@@ -61,6 +60,8 @@ public class OI {
 		leftShooterTurningButton.whenPressed(new GyroRotateCommand(-60));
 		rightShooterTurningButton.whenPressed(new GyroRotateCommand(60));
 		testButton.whenPressed(new GyroStraightDrivingCommand(0.4, 1));
+		
+		// Shooter Axis
 	}
 
 	public boolean getMainButton(int button) {

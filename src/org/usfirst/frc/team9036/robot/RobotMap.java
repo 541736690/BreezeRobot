@@ -28,6 +28,9 @@ public class RobotMap {
 	public static final double DriveButtonMaxSpeed = 0.5; // TODO: Remove this limit
 													// before competition.
 	public static double DriveButtonMaxCurve = 0.5; // TODO: As previous
+	public static double ShootAdjustSpeed = 0.7;
+	public static double ShootAdjustCurve = 0.5;
+	
 	
 	// Gyro Drive Settings
 	public static final double GyroDegreeTolerance = 3;
