@@ -3,6 +3,7 @@ package org.usfirst.frc.team9036.robot;
 
 import org.usfirst.frc.team9036.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.GyroSubsystem;
+import org.usfirst.frc.team9036.robot.commands.autonomous.CrossAndRotate;
 import org.usfirst.frc.team9036.robot.subsystems.BallCollectorSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallShooterSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.DebugSubsystem;
@@ -40,11 +41,10 @@ public class Robot extends IterativeRobot {
 	 */
 	public void robotInit() {
 		oi = new OI();
-		/*
-		 * chooser = new SendableChooser(); chooser.addDefault("Default Auto",
-		 * new ExampleCommand()); // chooser.addObject("My Auto", new
-		 * MyAutoCommand()); SmartDashboard.putData("Auto mode", chooser);
-		 */
+		chooser = new SendableChooser();
+		chooser.addDefault("跨越障碍并面向 60°", new CrossAndRotate());
+		chooser.addObject("另一个指令", new CrossAndRotate());
+		SmartDashboard.putData("Auto selector", chooser);
 	}
 
 	public void disabledInit() {
@@ -56,16 +56,8 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void autonomousInit() {
-		autonomousCommand = null;
-
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
-
-		// schedule the autonomous command (example)
+		autonomousCommand = (Command) chooser.getSelected();
+		
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}
