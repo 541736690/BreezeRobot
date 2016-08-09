@@ -16,7 +16,7 @@ public class RobotMap {
 	public static final double LeftBallShooterMotorSpeed = 1;
 	public static final double RightBallShooterMotorSpeed = -1;
 	public static final double BallArmMotorSpeed = 1.0;
-	public static final double BallCollectorMotorSpeed = 1; // TODO: Change this limit
+	public static final double BallCollectorMotorSpeed = 1; 
 	
 	// Collector Settings
 	public static final int BallCollectorEncoderChannelA = 1;
@@ -25,9 +25,9 @@ public class RobotMap {
 	// Drive Settings
 	public static final boolean IsDirectionInversed = false;
 	public static final boolean IsSquareInput = true;
-	public static final double DriveButtonMaxSpeed = 0.5; // TODO: Remove this limit
-													// before competition.
-	public static double DriveButtonMaxCurve = 0.5; // TODO: As previous
+	public static final double DriveButtonMaxSpeed = 1;
+													
+	public static double DriveButtonMaxCurve = 1; 
 	public static double ShootAdjustSpeed = 0.7;
 	public static double ShootAdjustCurve = 0.5;
 	
