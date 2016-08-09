@@ -26,10 +26,8 @@ public class OI {
 	Button rightTurningButton;
 	Button leftShooterTurningButton;
 	Button rightShooterTurningButton;
-	Button ballCollectButton;
 	Button ballAutoAimButton;
-	Button testButton; // TODO: Remove Test Button
-
+	
 	public OI() {
 		// Initialize Joysticks
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
@@ -43,7 +41,6 @@ public class OI {
 		rightTurningButton = new JoystickButton(mainJoystick, RobotMap.RightTurningButtonID);
 
 		// Shoot Joystick Button
-		ballCollectButton = new JoystickButton(shootJoystick, RobotMap.BallCollectorButtonID);
 		ballAutoAimButton = new JoystickButton(shootJoystick, RobotMap.BallAutoAimButtonID);
 		leftShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.LeftShooterTurningButtonID);
 		rightShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.RightShooterTurningButtonID);
@@ -59,9 +56,6 @@ public class OI {
 		ballAutoAimButton.whileHeld(new VisionAutoAimCommand());
 		leftShooterTurningButton.whenPressed(new GyroRotateCommand(-60));
 		rightShooterTurningButton.whenPressed(new GyroRotateCommand(60));
-		testButton.whenPressed(new GyroStraightDrivingCommand(0.4, 1));
-		
-		// Shooter Axis
 	}
 
 	public boolean getMainButton(int button) {
