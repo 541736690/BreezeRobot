@@ -62,6 +62,9 @@ public class RobotMap {
 	public static final int DriveRightAxis = 3;
 	public static final int DriveSpeedAxis = 6;
 	public static final int DriveDirectionAxis = 9;
+	
+    // Drive Joystick POV
+	public static final int DriveShiftPOV = 0;
 
 	// Shooter Joystick Button
 	public static final int BallCollectorButtonID = 2;

@@ -73,6 +73,9 @@ public class OI {
 	public double getMainAxis(int axis) {
 		return mainJoystick.getRawAxis(axis);
 	}
+	public double getPOV(int pov){
+		return mainJoystick.getPOV(pov);
+	}
 
 	public double getShootAxis(int axis) {
 		return shootJoystick.getRawAxis(axis);
