@@ -13,11 +13,11 @@ public class GyroRelativeTurningCommand extends GyroTurningCommand {
 		double __lAngle = GyroTurningCommand.getLowerBound(currentAngle, currentAngle + targetAngle),
 				__rAngle = GyroTurningCommand.getUpperBound(currentAngle, currentAngle + targetAngle);
 
-		if (currentAngle - __lAngle >= __rAngle - currentAngle) {
-			direction = -1;
+		if (currentAngle - __lAngle <= __rAngle - currentAngle) {
+			direction = 1;
 			finalAngle = __lAngle;
 		} else {
-			direction = 1;
+			direction = -1;
 			finalAngle = __rAngle;
 		}
 	}

@@ -4,6 +4,7 @@ import org.usfirst.frc.team9036.robot.Robot;
 import org.usfirst.frc.team9036.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -38,7 +39,9 @@ public abstract class GyroTurningCommand extends Command {
 		double curveSpeed = direction * ((delta >= RobotMap.GyroDegreeReduce) ? RobotMap.GyroTurnSpeedMaximum
 				: (RobotMap.GyroTurnSpeedMaximum - RobotMap.GyroTurnSpeedMinimum) / RobotMap.GyroDegreeReduce * delta
 						+ RobotMap.GyroTurnSpeedMinimum);
-
+		
+		SmartDashboard.putNumber("curveSpeed", curveSpeed);
+		SmartDashboard.putNumber("delta", delta);
 		Robot.driveSubsystem.arcadeDrive(0, curveSpeed);
 	}
 

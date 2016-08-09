@@ -21,14 +21,14 @@ public class RobotMap {
 	// Drive Settings
 	public static boolean IsDirectionInversed = false;
 	public static boolean IsSquareInput = true;
-	public static double DriveButtonMaxSpeed = 0.8; // TODO: Remove this limit
+	public static double DriveButtonMaxSpeed = 0.5; // TODO: Remove this limit
 													// before competition.
-
+	public static double DriveButtonMaxCurve = 0.5; // TODO
 	// Gyro Drive Settings
 	public static double GyroDegreeTolerance = 3;
 	public static double GyroDegreeReduce = 30;
 	public static double GyroTurnSpeedMinimum = 0.3;
-	public static double GyroTurnSpeedMaximum = 1;
+	public static double GyroTurnSpeedMaximum = 0.5;
 
 	// Vision Drive Settings
 	public static double VisionTolerance = 0.02;

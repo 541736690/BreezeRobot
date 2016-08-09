@@ -20,7 +20,7 @@ public class ButtonDriveCommand extends Command {
 		double __speed = Robot.oi.getMainAxis(RobotMap.DriveLeftAxis) - Robot.oi.getMainAxis(RobotMap.DriveRightAxis);
 
 		Robot.driveSubsystem.arcadeDrive(RobotMap.DriveButtonMaxSpeed * __speed,
-				(isLeftHeld ? -1 : 0) + (isRightHeld ? 1 : 0));
+				((isLeftHeld ? -1 : 0) + (isRightHeld ? 1 : 0)) * RobotMap.DriveButtonMaxCurve);
 	}
 
 	protected boolean isFinished() {
