@@ -17,11 +17,20 @@ public class ButtonDriveCommand extends Command {
 	protected void execute() {
 		boolean isLeftHeld = Robot.oi.getMainButton(RobotMap.LeftDriveButtonID);
 		boolean isRightHeld = Robot.oi.getMainButton(RobotMap.RightDriveButtonID);
-		double __speed = (Robot.oi.getMainAxis(RobotMap.DriveLeftAxis) - Robot.oi.getMainAxis(RobotMap.DriveRightAxis))
-				* RobotMap.DriveButtonMaxSpeed + Robot.oi.getShootAxis(RobotMap.BallCollectorLeftAxis) 
-				* RobotMap.ShootAdjustSpeed;
+		double mode = Robot.oi.getPOV(RobotMap.DriveShiftPOV);
+		double shift;
+		if (mode == 0) {
+			shift = 1;
+		} else if (mode == 180) {
+			shift = 0.5;
+		} else {
+			shift = 0.7;
+		}
+		double __speed = ((Robot.oi.getMainAxis(RobotMap.DriveLeftAxis) - Robot.oi.getMainAxis(RobotMap.DriveRightAxis))
+				* RobotMap.DriveButtonMaxSpeed + Robot.oi.getShootAxis(RobotMap.DriveSlightSpeedAxis) 
+				* RobotMap.ShootAdjustSpeed) * shift;
 		double __curve = ((isLeftHeld ? -1 : 0) + (isRightHeld ? 1 : 0)) * RobotMap.DriveButtonMaxCurve 
-				+ Robot.oi.getShootAxis(RobotMap.BallCollectorRightAxis) * RobotMap.ShootAdjustCurve;
+				+ Robot.oi.getShootAxis(RobotMap.DriveSlightCurveAxis) * RobotMap.ShootAdjustCurve;
 		Robot.driveSubsystem.arcadeDrive(__speed, __curve);
 	}
 

@@ -16,7 +16,7 @@ public class RobotMap {
 	public static final double LeftBallShooterMotorSpeed = 1;
 	public static final double RightBallShooterMotorSpeed = -1;
 	public static final double BallArmMotorSpeed = 1.0;
-	public static final double BallCollectorMotorSpeed = 1; // TODO: Change this limit
+	public static final double BallCollectorMotorSpeed = 1; 
 	
 	// Collector Settings
 	public static final int BallCollectorEncoderChannelA = 1;
@@ -25,9 +25,9 @@ public class RobotMap {
 	// Drive Settings
 	public static final boolean IsDirectionInversed = false;
 	public static final boolean IsSquareInput = true;
-	public static final double DriveButtonMaxSpeed = 0.5; // TODO: Remove this limit
-													// before competition.
-	public static double DriveButtonMaxCurve = 0.5; // TODO: As previous
+	public static final double DriveButtonMaxSpeed = 1;
+													
+	public static double DriveButtonMaxCurve = 1; 
 	public static double ShootAdjustSpeed = 0.7;
 	public static double ShootAdjustCurve = 0.5;
 	
@@ -35,8 +35,8 @@ public class RobotMap {
 	// Gyro Drive Settings
 	public static final double GyroDegreeTolerance = 3;
 	public static final double GyroDegreeReduce = 30;
-	public static final double GyroTurnSpeedMinimum = 0.3;
-	public static final double GyroTurnSpeedMaximum = 0.5;
+	public static final double GyroTurnSpeedMinimum = 0.1;
+	public static final double GyroTurnSpeedMaximum = 0.65;
 	public static final double GyroStraightRotateAdjust = 0.2;
 	public static final double GyroStraightRotateTolerance = 1;
 
@@ -62,6 +62,9 @@ public class RobotMap {
 	public static final int DriveRightAxis = 3;
 	public static final int DriveSpeedAxis = 6;
 	public static final int DriveDirectionAxis = 9;
+	
+    // Drive Joystick POV
+	public static final int DriveShiftPOV = 0;
 
 	// Shooter Joystick Button
 	public static final int BallCollectorButtonID = 2;
@@ -75,7 +78,8 @@ public class RobotMap {
 	public static final int BallShootererAdjustingAxis = 9;
 	public static final int BallCollectorLeftAxis = 2;
 	public static final int BallCollectorRightAxis = 3;
-	
+	public static final int DriveSlightSpeedAxis = 1;
+	public static final int DriveSlightCurveAxis = 4;
 
 	// Vision Constants
 	public static final int VisionCommandEnabled = 0;
