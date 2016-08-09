@@ -1,8 +1,9 @@
 package org.usfirst.frc.team9036.robot;
 
 import org.usfirst.frc.team9036.robot.commands.BallCollectorCommand;
-import org.usfirst.frc.team9036.robot.commands.drive.GyroAbsoluteTurningCommand;
-import org.usfirst.frc.team9036.robot.commands.drive.GyroRelativeTurningCommand;
+import org.usfirst.frc.team9036.robot.commands.drive.GyroAbsoluteRotateCommand;
+import org.usfirst.frc.team9036.robot.commands.drive.GyroRotateCommand;
+import org.usfirst.frc.team9036.robot.commands.drive.GyroStraightDrivingCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.ReverseDriveDirectionCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.VisionAutoAimCommand;
 
@@ -25,8 +26,9 @@ public class OI {
 	Button rightTurningButton;
 	Button leftShooterTurningButton;
 	Button rightShooterTurningButton;
-	Button ballCollectorButton;
+	Button ballCollectButton;
 	Button ballAutoAimButton;
+	Button testButton; // TODO: Remove Test Button
 
 	public OI() {
 		// Initialize Joysticks
@@ -41,24 +43,25 @@ public class OI {
 		rightTurningButton = new JoystickButton(mainJoystick, RobotMap.RightTurningButtonID);
 
 		// Shoot Joystick Button
-		ballCollectorButton = new JoystickButton(shootJoystick, RobotMap.BallCollectorButtonID);
+		ballCollectButton = new JoystickButton(shootJoystick, RobotMap.BallCollectorButtonID);
 		ballAutoAimButton = new JoystickButton(shootJoystick, RobotMap.BallAutoAimButtonID);
 		leftShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.LeftShooterTurningButtonID);
 		rightShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.RightShooterTurningButtonID);
-
+		testButton = new JoystickButton(shootJoystick, 10);
+		
 		// Main Button Command
-		ballCollectorButton.whileHeld(new BallCollectorCommand());
-		forwardTurningButton.toggleWhenPressed(new GyroAbsoluteTurningCommand(0));
-		backwardTurningButton.toggleWhenPressed(new GyroAbsoluteTurningCommand(180));
-		leftTurningButton.toggleWhenPressed(new GyroRelativeTurningCommand(-90));
-		rightTurningButton.toggleWhenPressed(new GyroRelativeTurningCommand(90));
+		forwardTurningButton.toggleWhenPressed(new GyroAbsoluteRotateCommand(0));
+		backwardTurningButton.toggleWhenPressed(new GyroAbsoluteRotateCommand(180));
+		leftTurningButton.toggleWhenPressed(new GyroRotateCommand(-90));
+		rightTurningButton.toggleWhenPressed(new GyroRotateCommand(90));
 		
 		// Shooter Button Command
-		gyroTurningButton.whenPressed(new ReverseDriveDirectionCommand());
+		gyroTurningButton.whenPressed(new ReverseDriveDirectionCommand()); // TODO: Remove Test Button
 		ballAutoAimButton.whileHeld(new VisionAutoAimCommand());
-		leftShooterTurningButton.whenPressed(new GyroRelativeTurningCommand(-60));
-		rightShooterTurningButton.whenPressed(new GyroRelativeTurningCommand(60));
-		
+		leftShooterTurningButton.whenPressed(new GyroRotateCommand(-60));
+		rightShooterTurningButton.whenPressed(new GyroRotateCommand(60));
+		testButton.whenPressed(new GyroStraightDrivingCommand(0.4, 1));
+		ballCollectButton.whileHeld(new BallCollectorCommand());
 	}
 
 	public boolean getMainButton(int button) {

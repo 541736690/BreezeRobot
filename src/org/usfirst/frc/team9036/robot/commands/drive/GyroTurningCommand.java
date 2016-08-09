@@ -39,9 +39,6 @@ public abstract class GyroTurningCommand extends Command {
 		double curveSpeed = direction * ((delta >= RobotMap.GyroDegreeReduce) ? RobotMap.GyroTurnSpeedMaximum
 				: (RobotMap.GyroTurnSpeedMaximum - RobotMap.GyroTurnSpeedMinimum) / RobotMap.GyroDegreeReduce * delta
 						+ RobotMap.GyroTurnSpeedMinimum);
-		
-		SmartDashboard.putNumber("curveSpeed", curveSpeed);
-		SmartDashboard.putNumber("delta", delta);
 		Robot.driveSubsystem.arcadeDrive(0, curveSpeed);
 	}
 

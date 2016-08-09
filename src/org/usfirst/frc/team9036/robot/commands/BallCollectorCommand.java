@@ -11,10 +11,10 @@ public class BallCollectorCommand extends Command {
 	}
 
 	protected void initialize() {
-		Robot.ballCollectorSubsystem.collect();
 	}
 
 	protected void execute() {
+		Robot.ballCollectorSubsystem.collect();
 	}
 
 	protected boolean isFinished() {

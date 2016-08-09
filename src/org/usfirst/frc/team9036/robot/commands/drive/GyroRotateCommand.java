@@ -2,9 +2,9 @@ package org.usfirst.frc.team9036.robot.commands.drive;
 
 import org.usfirst.frc.team9036.robot.Robot;
 
-public class GyroRelativeTurningCommand extends GyroTurningCommand {
+public class GyroRotateCommand extends GyroTurningCommand {
 
-	public GyroRelativeTurningCommand(double targetAngle) {
+	public GyroRotateCommand(double targetAngle) {
 		super(targetAngle);
 	}
 
