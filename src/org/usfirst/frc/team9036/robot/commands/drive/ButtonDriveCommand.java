@@ -17,7 +17,7 @@ public class ButtonDriveCommand extends Command {
 	protected void execute() {
 		boolean isLeftHeld = Robot.oi.getMainButton(RobotMap.LeftDriveButtonID);
 		boolean isRightHeld = Robot.oi.getMainButton(RobotMap.RightDriveButtonID);
-		double mode = Robot.oi.getPOV(RobotMap.DriveShiftPOV);
+		double mode = Robot.oi.getMainPOV(RobotMap.DriveShiftPOV);
 		double shift;
 		if (mode == 0) {
 			shift = 1;

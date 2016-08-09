@@ -3,6 +3,7 @@ package org.usfirst.frc.team9036.robot;
 
 import org.usfirst.frc.team9036.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.GyroSubsystem;
+import org.usfirst.frc.team9036.robot.commands.autonomous.Chooser;
 import org.usfirst.frc.team9036.robot.commands.autonomous.CrossAndRotate;
 import org.usfirst.frc.team9036.robot.subsystems.BallCollectorSubsystem;
 import org.usfirst.frc.team9036.robot.subsystems.BallShooterSubsystem;
@@ -33,7 +34,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	Command autonomousCommand;
-	SendableChooser chooser;
+	Chooser chooser;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -41,10 +42,7 @@ public class Robot extends IterativeRobot {
 	 */
 	public void robotInit() {
 		oi = new OI();
-		chooser = new SendableChooser();
-		chooser.addDefault("跨越障碍并面向 60°", new CrossAndRotate());
-		chooser.addObject("另一个指令", new CrossAndRotate());
-		SmartDashboard.putData("Auto selector", chooser);
+		chooser = new Chooser();
 	}
 
 	public void disabledInit() {
@@ -56,10 +54,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void autonomousInit() {
-		autonomousCommand = (Command) chooser.getSelected();
-		
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		chooser.run();
 	}
 
 	public void autonomousPeriodic() {

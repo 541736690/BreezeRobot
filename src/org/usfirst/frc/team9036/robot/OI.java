@@ -1,18 +1,13 @@
 package org.usfirst.frc.team9036.robot;
 
-import org.usfirst.frc.team9036.robot.commands.BallCollectorCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.GyroAbsoluteRotateCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.GyroRotateCommand;
-import org.usfirst.frc.team9036.robot.commands.drive.GyroStraightDrivingCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.ReverseDriveDirectionCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.VisionAutoAimCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class OI {
 	Joystick mainJoystick;
@@ -69,8 +64,13 @@ public class OI {
 	public double getMainAxis(int axis) {
 		return mainJoystick.getRawAxis(axis);
 	}
-	public double getPOV(int pov){
+	
+	public double getMainPOV(int pov){
 		return mainJoystick.getPOV(pov);
+	}
+	
+	public double getShootPOV(int pov){
+		return shootJoystick.getPOV(pov);
 	}
 
 	public double getShootAxis(int axis) {
