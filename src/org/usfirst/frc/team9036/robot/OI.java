@@ -28,7 +28,6 @@ public class OI {
 	Button rightShooterTurningButton;
 	Button ballCollectButton;
 	Button ballAutoAimButton;
-	Button testButton; // TODO: Remove Test Button
 
 	public OI() {
 		// Initialize Joysticks
@@ -59,7 +58,6 @@ public class OI {
 		ballAutoAimButton.whileHeld(new VisionAutoAimCommand());
 		leftShooterTurningButton.whenPressed(new GyroRotateCommand(-60));
 		rightShooterTurningButton.whenPressed(new GyroRotateCommand(60));
-		testButton.whenPressed(new GyroStraightDrivingCommand(0.4, 1));
 		
 		// Shooter Axis
 	}

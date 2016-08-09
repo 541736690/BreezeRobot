@@ -9,21 +9,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BallCollectorSubsystem extends Subsystem {
 	VictorSP ballCollectorMotor;
-	Encoder ballCollectorEncoder;
 	
 	public BallCollectorSubsystem() {
 		ballCollectorMotor = new VictorSP(RobotMap.BallCollectorMotorPort);
-		ballCollectorEncoder = new Encoder(RobotMap.BallCollectorEncoderChannelA, RobotMap.BallCollectorEncoderChannelA);
 	}
 	
 	public void collect(double speed) {
 		ballCollectorMotor.set(speed);
 	}
 	
-	public double getDistance() {
-		return ballCollectorEncoder.getDistance();
-	}
-
 	public void stop() {
 		ballCollectorMotor.stopMotor();
 	}

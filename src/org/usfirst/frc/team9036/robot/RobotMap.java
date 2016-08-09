@@ -35,8 +35,8 @@ public class RobotMap {
 	// Gyro Drive Settings
 	public static final double GyroDegreeTolerance = 3;
 	public static final double GyroDegreeReduce = 30;
-	public static final double GyroTurnSpeedMinimum = 0.3;
-	public static final double GyroTurnSpeedMaximum = 0.5;
+	public static final double GyroTurnSpeedMinimum = 0.1;
+	public static final double GyroTurnSpeedMaximum = 0.65;
 	public static final double GyroStraightRotateAdjust = 0.2;
 	public static final double GyroStraightRotateTolerance = 1;
 
@@ -75,7 +75,8 @@ public class RobotMap {
 	public static final int BallShootererAdjustingAxis = 9;
 	public static final int BallCollectorLeftAxis = 2;
 	public static final int BallCollectorRightAxis = 3;
-	
+	public static final int DriveSlightSpeedAxis = 1;
+	public static final int DriveSlightCurveAxis = 4;
 
 	// Vision Constants
 	public static final int VisionCommandEnabled = 0;
