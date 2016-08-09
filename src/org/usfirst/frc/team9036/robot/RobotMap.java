@@ -17,6 +17,10 @@ public class RobotMap {
 	public static final double RightBallShooterMotorSpeed = -1;
 	public static final double BallArmMotorSpeed = 1.0;
 	public static final double BallCollectorMotorSpeed = 1; // TODO: Change this limit
+	
+	// Collector Settings
+	public static final int BallCollectorEncoderChannelA = 1;
+	public static final int BallCollectorEncoderChannelB = 2;
 
 	// Drive Settings
 	public static final boolean IsDirectionInversed = false;

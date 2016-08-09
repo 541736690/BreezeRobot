@@ -22,6 +22,7 @@ public class BallCollectorCommand extends Command {
 		SmartDashboard.putNumber("speed", speed);
 		System.out.println(speed);
 		Robot.ballCollectorSubsystem.collect(speed);
+		SmartDashboard.putNumber("EncoderDistance", Robot.ballCollectorSubsystem.getDistance());
 	}
 
 	protected boolean isFinished() {
