@@ -8,22 +8,22 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class GyroSubsystem extends Subsystem {
-    
-	AHRS ahrs;
-	
-	public GyroSubsystem() {
-        try {
-            ahrs = new AHRS(SPI.Port.kMXP); 
-        } catch (RuntimeException ex ) {
-            DriverStation.reportError("Error instantiating navX-MXP:  " + ex.getMessage(), true);
-        }
-	}
-    public void initDefaultCommand() {
-        setDefaultCommand(new GyroDebugCommand());
-    }
-    
-    public double getAngle() {
-    	return ahrs.getAngle();
-    }
-}
 
+	AHRS ahrs;
+
+	public GyroSubsystem() {
+		try {
+			ahrs = new AHRS(SPI.Port.kMXP);
+		} catch (RuntimeException ex) {
+			DriverStation.reportError("Error instantiating navX-MXP:  " + ex.getMessage(), true);
+		}
+	}
+
+	public void initDefaultCommand() {
+		setDefaultCommand(new GyroDebugCommand());
+	}
+
+	public double getAngle() {
+		return ahrs.getAngle();
+	}
+}

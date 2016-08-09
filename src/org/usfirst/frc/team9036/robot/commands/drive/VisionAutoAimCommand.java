@@ -12,45 +12,45 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 public class VisionAutoAimCommand extends Command {
 
 	NetworkTable visionTable;
-	
-    public VisionAutoAimCommand() {
-    	requires(Robot.driveSubsystem);
-    }
-    
-    protected void initialize() {
-    	visionTable = NetworkTable.getTable("vision");
-    	visionTable.putNumber("manual_exposure", RobotMap.VisionCommandEnabled);
-    	visionTable.putNumber("auto_enabled", RobotMap.VisionCommandEnabled);
-    }
-    
-    protected void execute(){
-    	double cX = visionTable.getNumber("cX", 0);
-    	double cY = visionTable.getNumber("cY", 0);
-    	double delta = Math.abs(cX);
-    	double speed = delta > RobotMap.VisionTolerance ? RobotMap.VisionSpeed * Math.signum(cX) : 0;
-    	
-    	Robot.driveSubsystem.arcadeDrive(0, speed);
-    	
-    	if (delta > RobotMap.VisionTolerance) {
-    		visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandInProgress);
-    	} else {
-    		visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandEnabled);
-    	}
-    }
-    
-    protected boolean isFinished() {
-        return false;
-    }
-    
-    protected void end() {
-    	Robot.driveSubsystem.stop();
-    	
-    	visionTable.putNumber("manual_exposure", RobotMap.VisionCommandDisabled);
-    	visionTable.putNumber("auto_enabled", RobotMap.VisionCommandDisabled);
-    	visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandDisabled);
-    }
-    
-    protected void interrupted() {
-    	end();
-    }
+
+	public VisionAutoAimCommand() {
+		requires(Robot.driveSubsystem);
+	}
+
+	protected void initialize() {
+		visionTable = NetworkTable.getTable("vision");
+		visionTable.putNumber("manual_exposure", RobotMap.VisionCommandEnabled);
+		visionTable.putNumber("auto_enabled", RobotMap.VisionCommandEnabled);
+	}
+
+	protected void execute() {
+		double cX = visionTable.getNumber("cX", 0);
+		double cY = visionTable.getNumber("cY", 0);
+		double delta = Math.abs(cX);
+		double speed = delta > RobotMap.VisionTolerance ? RobotMap.VisionSpeed * Math.signum(cX) : 0;
+
+		Robot.driveSubsystem.arcadeDrive(0, speed);
+
+		if (delta > RobotMap.VisionTolerance) {
+			visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandInProgress);
+		} else {
+			visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandEnabled);
+		}
+	}
+
+	protected boolean isFinished() {
+		return false;
+	}
+
+	protected void end() {
+		Robot.driveSubsystem.stop();
+
+		visionTable.putNumber("manual_exposure", RobotMap.VisionCommandDisabled);
+		visionTable.putNumber("auto_enabled", RobotMap.VisionCommandDisabled);
+		visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandDisabled);
+	}
+
+	protected void interrupted() {
+		end();
+	}
 }

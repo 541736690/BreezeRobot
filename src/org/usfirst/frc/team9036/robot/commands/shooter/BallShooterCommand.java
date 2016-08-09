@@ -10,28 +10,28 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class BallShooterCommand extends Command {
 
-    public BallShooterCommand() {
-    	requires(Robot.ballShooterSubsystem);
-    	requires(Robot.ballCollectorSubsystem);
-    }
-    
-    protected void initialize() {
-    	setTimeout(3);
-    }
-    
-    protected void execute() {
-    	Robot.ballShooterSubsystem.move();
-    }
-    
-    protected boolean isFinished() {
-        return isTimedOut();
-    }
-    
-    protected void end() {
-    	Robot.ballShooterSubsystem.stop();
-    }
-    
-    protected void interrupted() {
-    	end();
-    }
+	public BallShooterCommand() {
+		requires(Robot.ballShooterSubsystem);
+		requires(Robot.ballCollectorSubsystem);
+	}
+
+	protected void initialize() {
+		setTimeout(3);
+	}
+
+	protected void execute() {
+		Robot.ballShooterSubsystem.move();
+	}
+
+	protected boolean isFinished() {
+		return isTimedOut();
+	}
+
+	protected void end() {
+		Robot.ballShooterSubsystem.stop();
+	}
+
+	protected void interrupted() {
+		end();
+	}
 }

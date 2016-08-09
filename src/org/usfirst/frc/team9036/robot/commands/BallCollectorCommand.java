@@ -6,26 +6,26 @@ import org.usfirst.frc.team9036.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class BallCollectorCommand extends Command {
-    public BallCollectorCommand() {
-    	requires(Robot.ballCollectorSubsystem);
-    }
+	public BallCollectorCommand() {
+		requires(Robot.ballCollectorSubsystem);
+	}
 
-    protected void initialize() {
-    	Robot.ballCollectorSubsystem.collect();
-    }
+	protected void initialize() {
+		Robot.ballCollectorSubsystem.collect();
+	}
 
-    protected void execute() {
-    }
+	protected void execute() {
+	}
 
-    protected boolean isFinished() {
-        return false;
-    }
+	protected boolean isFinished() {
+		return false;
+	}
 
-    protected void end() {
-    	Robot.ballCollectorSubsystem.stop();
-    }
+	protected void end() {
+		Robot.ballCollectorSubsystem.stop();
+	}
 
-    protected void interrupted() {
-    	end();
-    }
+	protected void interrupted() {
+		end();
+	}
 }

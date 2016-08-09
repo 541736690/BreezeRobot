@@ -7,25 +7,25 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DebugCommand extends Command {
 
-    public DebugCommand() {
-    	requires(Robot.debugSubsystem);
-    }
+	public DebugCommand() {
+		requires(Robot.debugSubsystem);
+	}
 
-    protected void initialize() {
-    }
+	protected void initialize() {
+	}
 
-    protected void execute() {
-    	
-    }
+	protected void execute() {
 
-    protected boolean isFinished() {
-        return false;
-    }
+	}
 
-    protected void end() {
-    }
+	protected boolean isFinished() {
+		return false;
+	}
 
-    protected void interrupted() {
-    	end();
-    }
+	protected void end() {
+	}
+
+	protected void interrupted() {
+		end();
+	}
 }

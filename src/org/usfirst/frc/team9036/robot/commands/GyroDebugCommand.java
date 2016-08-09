@@ -8,25 +8,25 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class GyroDebugCommand extends Command {
-	
-    public GyroDebugCommand() {
-    	requires(Robot.gyroSubsystem);
-    }
 
-    protected void initialize() {
-    }
+	public GyroDebugCommand() {
+		requires(Robot.gyroSubsystem);
+	}
 
-    protected void execute() {
-    }
+	protected void initialize() {
+	}
 
-    protected boolean isFinished() {
-        return false;
-    }
+	protected void execute() {
+	}
 
-    protected void end() {
-    }
+	protected boolean isFinished() {
+		return false;
+	}
 
-    protected void interrupted() {
-    	end();
-    }
+	protected void end() {
+	}
+
+	protected void interrupted() {
+		end();
+	}
 }
