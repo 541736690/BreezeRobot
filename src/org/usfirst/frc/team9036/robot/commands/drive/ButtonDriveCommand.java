@@ -4,6 +4,7 @@ import org.usfirst.frc.team9036.robot.Robot;
 import org.usfirst.frc.team9036.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class ButtonDriveCommand extends Command {
 
@@ -31,6 +32,8 @@ public class ButtonDriveCommand extends Command {
 				* RobotMap.ShootAdjustSpeed) * shift;
 		double __curve = ((isLeftHeld ? -1 : 0) + (isRightHeld ? 1 : 0)) * RobotMap.DriveButtonMaxCurve 
 				+ Robot.oi.getShootAxis(RobotMap.DriveSlightCurveAxis) * RobotMap.ShootAdjustCurve;
+		SmartDashboard.putNumber("speed", __speed);
+		SmartDashboard.putNumber("curve", __curve);
 		Robot.driveSubsystem.arcadeDrive(__speed, __curve);
 	}
 

@@ -41,10 +41,10 @@ public class OI {
 		rightShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.RightShooterTurningButtonID);
 		
 		// Main Button Command
-		forwardTurningButton.toggleWhenPressed(new GyroAbsoluteRotateCommand(0));
-		backwardTurningButton.toggleWhenPressed(new GyroAbsoluteRotateCommand(180));
-		leftTurningButton.toggleWhenPressed(new GyroRotateCommand(-90));
-		rightTurningButton.toggleWhenPressed(new GyroRotateCommand(90));
+		forwardTurningButton.whileHeld(new GyroAbsoluteRotateCommand(0));
+		backwardTurningButton.whileHeld(new GyroAbsoluteRotateCommand(180));
+		leftTurningButton.whileHeld(new GyroRotateCommand(-90));
+		rightTurningButton.whileHeld(new GyroRotateCommand(90));
 		
 		// Shooter Button Command
 		gyroTurningButton.whenPressed(new ReverseDriveDirectionCommand()); // TODO: Remove Test Button

@@ -27,7 +27,7 @@ public class RobotMap {
 	public static final boolean IsSquareInput = true;
 	public static final double DriveButtonMaxSpeed = 1;
 													
-	public static double DriveButtonMaxCurve = 1; 
+	public static double DriveButtonMaxCurve = 0.6; 
 	public static double ShootAdjustSpeed = 0.7;
 	public static double ShootAdjustCurve = 0.5;
 	
