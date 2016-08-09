@@ -20,6 +20,7 @@ public class BallShooterCommand extends Command {
 	}
 
 	protected void execute() {
+		Robot.ballCollectorSubsystem.collect(1);
 		Robot.ballShooterSubsystem.move();
 	}
 
@@ -28,6 +29,7 @@ public class BallShooterCommand extends Command {
 	}
 
 	protected void end() {
+		Robot.ballCollectorSubsystem.stop();
 		Robot.ballShooterSubsystem.stop();
 	}
 
