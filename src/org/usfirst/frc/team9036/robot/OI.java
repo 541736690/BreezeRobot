@@ -18,12 +18,13 @@ public class OI {
 	Joystick shootJoystick;
 
 	Button gyroTurningButton;
-
+	
 	Button forwardTurningButton;
 	Button backwardTurningButton;
 	Button leftTurningButton;
 	Button rightTurningButton;
-
+	Button leftShooterTurningButton;
+	Button rightShooterTurningButton;
 	Button ballCollectorButton;
 	Button ballAutoAimButton;
 
@@ -32,26 +33,32 @@ public class OI {
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 		shootJoystick = new Joystick(RobotMap.ShooterJoystickPort);
 
-		// Main Joystick
+		// Main Joystick Button
 		gyroTurningButton = new JoystickButton(mainJoystick, RobotMap.GyroTurningButtonID);
-
 		forwardTurningButton = new JoystickButton(mainJoystick, RobotMap.ForwardTurningButtonID);
 		backwardTurningButton = new JoystickButton(mainJoystick, RobotMap.BackwardTurningButtonID);
 		leftTurningButton = new JoystickButton(mainJoystick, RobotMap.LeftTurningButtonID);
 		rightTurningButton = new JoystickButton(mainJoystick, RobotMap.RightTurningButtonID);
 
-		// Shoot Joystick
+		// Shoot Joystick Button
 		ballCollectorButton = new JoystickButton(shootJoystick, RobotMap.BallCollectorButtonID);
 		ballAutoAimButton = new JoystickButton(shootJoystick, RobotMap.BallAutoAimButtonID);
+		leftShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.LeftShooterTurningButtonID);
+		rightShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.RightShooterTurningButtonID);
 
-		// Assign
+		// Main Button Command
 		ballCollectorButton.whileHeld(new BallCollectorCommand());
 		forwardTurningButton.toggleWhenPressed(new GyroAbsoluteTurningCommand(0));
 		backwardTurningButton.toggleWhenPressed(new GyroAbsoluteTurningCommand(180));
 		leftTurningButton.toggleWhenPressed(new GyroRelativeTurningCommand(-90));
 		rightTurningButton.toggleWhenPressed(new GyroRelativeTurningCommand(90));
+		
+		// Shooter Button Command
 		gyroTurningButton.whenPressed(new ReverseDriveDirectionCommand());
 		ballAutoAimButton.whileHeld(new VisionAutoAimCommand());
+		leftShooterTurningButton.whenPressed(new GyroRelativeTurningCommand(-60));
+		rightShooterTurningButton.whenPressed(new GyroRelativeTurningCommand(60));
+		
 	}
 
 	public boolean getMainButton(int button) {

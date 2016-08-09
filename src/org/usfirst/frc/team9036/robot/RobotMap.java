@@ -54,10 +54,12 @@ public class RobotMap {
 	public static final int DriveDirectionAxis = 9;
 
 	// Shooter Joystick Button
-	public static final int BallCollectorButtonID = 3;
+	public static final int BallCollectorButtonID = 2;
 	public static final int LeftBallShooterButtonID = 5;
 	public static final int RightBallShooterButtonID = 6;
 	public static final int BallAutoAimButtonID = 1;
+	public static final int LeftShooterTurningButtonID = 3;
+	public static final int RightShooterTurningButtonID = 4;
 
 	// Shooter Joystick Axis
 	public static final int BallShootererAdjustingAxis = 9;
