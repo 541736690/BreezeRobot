@@ -15,7 +15,6 @@ public class BallShooterSubsystem extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new BallShooterCommandGroup());
 	}
 
 	public void move() {

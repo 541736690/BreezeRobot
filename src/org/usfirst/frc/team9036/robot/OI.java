@@ -61,7 +61,6 @@ public class OI {
 		leftShooterTurningButton.whenPressed(new GyroRotateCommand(-60));
 		rightShooterTurningButton.whenPressed(new GyroRotateCommand(60));
 		testButton.whenPressed(new GyroStraightDrivingCommand(0.4, 1));
-		ballCollectButton.whileHeld(new BallCollectorCommand());
 	}
 
 	public boolean getMainButton(int button) {

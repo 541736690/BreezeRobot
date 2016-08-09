@@ -8,7 +8,7 @@ public class RobotMap {
 	public static final int DriverRearRightPort = 3;
 
 	// Other Motors
-	public static final int BallCollectorMotorPort = 4;
+	public static final int BallCollectorMotorPort = 5;
 	public static final int LeftBallShooterMotorPort = 7;
 	public static final int RightBallShooterMotorPort = 8;
 
@@ -16,20 +16,22 @@ public class RobotMap {
 	public static final double LeftBallShooterMotorSpeed = 1;
 	public static final double RightBallShooterMotorSpeed = -1;
 	public static final double BallArmMotorSpeed = 1.0;
-	public static final double BallCollectorMotorSpeed = 1.0;
+	public static final double BallCollectorMotorSpeed = 1; // TODO: Change this limit
 
 	// Drive Settings
 	public static final boolean IsDirectionInversed = false;
 	public static final boolean IsSquareInput = true;
 	public static final double DriveButtonMaxSpeed = 0.5; // TODO: Remove this limit
 													// before competition.
-	public static double DriveButtonMaxCurve = 0.5; // TODO
+	public static double DriveButtonMaxCurve = 0.5; // TODO: As previous
+	
 	// Gyro Drive Settings
 	public static final double GyroDegreeTolerance = 3;
 	public static final double GyroDegreeReduce = 30;
 	public static final double GyroTurnSpeedMinimum = 0.3;
 	public static final double GyroTurnSpeedMaximum = 0.5;
-	public static final double GyroStraightRotateAdjust = 0.3;
+	public static final double GyroStraightRotateAdjust = 0.2;
+	public static final double GyroStraightRotateTolerance = 1;
 
 	// Vision Drive Settings
 	public static final double VisionTolerance = 0.02;
@@ -64,6 +66,9 @@ public class RobotMap {
 
 	// Shooter Joystick Axis
 	public static final int BallShootererAdjustingAxis = 9;
+	public static final int BallCollectorLeftAxis = 2;
+	public static final int BallCollectorRightAxis = 3;
+	
 
 	// Vision Constants
 	public static final int VisionCommandEnabled = 0;
