@@ -17,10 +17,6 @@ public class RobotMap {
 	public static final double RightBallShooterMotorSpeed = -1;
 	public static final double BallArmMotorSpeed = 1.0;
 	public static final double BallCollectorMotorSpeed = 1; 
-	
-	// Collector Settings
-	public static final int BallCollectorEncoderChannelA = 1;
-	public static final int BallCollectorEncoderChannelB = 2;
 
 	// Drive Settings
 	public static final boolean IsDirectionInversed = false;
@@ -34,7 +30,7 @@ public class RobotMap {
 	
 	// Gyro Drive Settings
 	public static final double GyroDegreeTolerance = 3;
-	public static final double GyroDegreeReduce = 30;
+	public static final double GyroDegreeReduce = 40;
 	public static final double GyroTurnSpeedMinimum = 0.1;
 	public static final double GyroTurnSpeedMaximum = 0.65;
 	public static final double GyroStraightRotateAdjust = 0.2;

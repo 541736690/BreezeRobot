@@ -28,7 +28,7 @@ public class BallShooterPrepareCommand extends Command {
 		boolean isRightPressed = Robot.oi.getShootButton(RobotMap.RightBallShooterButtonID);
 		if (isLeftPressed || isRightPressed) {
 			Robot.ballShooterSubsystem.move();
-			Robot.ballCollectorSubsystem.collect(-0.8);
+			Robot.ballCollectorSubsystem.collect(-0.3);
 		} else {
 			Robot.ballShooterSubsystem.stop();
 		}
