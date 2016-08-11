@@ -13,7 +13,8 @@ public class Chooser {
 		chooser = new SendableChooser();
 		
 		// Add autonomous commands here
-		chooser.addDefault("跨越障碍并面向 60°", new CrossAndRotate());
+		chooser.addDefault("什么也不干", null);
+		chooser.addObject("跨越障碍并面向 60°", new CrossAndRotate());
 		// chooser.addObject("另一个指令", new Command1());
 		// chooser.addObject("另一个指令", new Command1());
 		// chooser.addObject("另一个指令", new Command1());
@@ -26,7 +27,7 @@ public class Chooser {
 	public void run() {
 		autonomousCommand = (Command) chooser.getSelected();
 		
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		 if (autonomousCommand != null)
+			 autonomousCommand.start();
 	}
 }
