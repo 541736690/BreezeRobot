@@ -5,8 +5,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class BallShooterCommandGroup extends CommandGroup {
 
 	public BallShooterCommandGroup() {
-		addSequential(new BallCollectorPrepareCommand());
-		addParallel(new BallShooterPrepareCommand());
+		addSequential(new BallShooterPrepareCommand());
 		addSequential(new BallShooterCommand());
 	}
 }

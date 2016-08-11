@@ -19,8 +19,6 @@ public class BallCollectorCommand extends Command {
 	protected void execute() {
 		double speed = (Robot.oi.getShootAxis(RobotMap.BallCollectorLeftAxis) 
 				- Robot.oi.getShootAxis(RobotMap.BallCollectorRightAxis)) * RobotMap.BallCollectorMotorSpeed;
-		SmartDashboard.putNumber("speed", -speed);
-		System.out.println(-speed);
 		Robot.ballCollectorSubsystem.collect(-speed);
 	}
 

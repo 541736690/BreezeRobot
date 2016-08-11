@@ -10,20 +10,20 @@ public class RobotMap {
 	// Other Motors
 	public static final int BallCollectorMotorPort = 5;
 	public static final int LeftBallShooterMotorPort = 7;
-	public static final int RightBallShooterMotorPort = 8;
+	public static final int RightBallShooterMotorPort = 6;
 
 	// Motor Settings
 	public static final double LeftBallShooterMotorSpeed = 1;
 	public static final double RightBallShooterMotorSpeed = -1;
 	public static final double BallArmMotorSpeed = 1.0;
-	public static final double BallCollectorMotorSpeed = 1; 
+	public static final double BallCollectorMotorSpeed = -1; 
 
 	// Drive Settings
 	public static final boolean IsDirectionInversed = false;
 	public static final boolean IsSquareInput = true;
 	public static final double DriveButtonMaxSpeed = 1;
 													
-	public static double DriveButtonMaxCurve = 0.6; 
+	public static double DriveButtonMaxCurve = 0.9; 
 	public static double ShootAdjustSpeed = 0.7;
 	public static double ShootAdjustCurve = 0.5;
 	
@@ -31,8 +31,8 @@ public class RobotMap {
 	// Gyro Drive Settings
 	public static final double GyroDegreeTolerance = 3;
 	public static final double GyroDegreeReduce = 40;
-	public static final double GyroTurnSpeedMinimum = 0.1;
-	public static final double GyroTurnSpeedMaximum = 0.65;
+	public static final double GyroTurnSpeedMinimum = 0.3;
+	public static final double GyroTurnSpeedMaximum = 0.95;
 	public static final double GyroStraightRotateAdjust = 0.2;
 	public static final double GyroStraightRotateTolerance = 1;
 
@@ -68,7 +68,7 @@ public class RobotMap {
 	public static final int RightBallShooterButtonID = 6;
 	public static final int BallAutoAimButtonID = 1;
 	public static final int LeftShooterTurningButtonID = 3;
-	public static final int RightShooterTurningButtonID = 4;
+	public static final int RightShooterTurningButtonID = 2;
 
 	// Shooter Joystick Axis
 	public static final int BallShootererAdjustingAxis = 9;
