@@ -8,6 +8,7 @@ public class Chooser {
 	
 	SendableChooser chooser;
 	Command autonomousCommand;
+	
 	public Chooser() {
 		chooser = new SendableChooser();
 		
