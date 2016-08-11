@@ -16,7 +16,6 @@ public class BallShooterPrepareCommand extends Command {
 
 	public BallShooterPrepareCommand() {
 		requires(Robot.ballShooterSubsystem);
-		requires(Robot.ballCollectorSubsystem);
 	}
 
 	protected void initialize() {
@@ -28,7 +27,6 @@ public class BallShooterPrepareCommand extends Command {
 		boolean isRightPressed = Robot.oi.getShootButton(RobotMap.RightBallShooterButtonID);
 		if (isLeftPressed || isRightPressed) {
 			Robot.ballShooterSubsystem.move();
-			Robot.ballCollectorSubsystem.collect(-0.3);
 		} else {
 			Robot.ballShooterSubsystem.stop();
 		}
@@ -42,7 +40,7 @@ public class BallShooterPrepareCommand extends Command {
 	}
 
 	protected void end() {
-		Robot.ballCollectorSubsystem.stop();
+		Robot.ballShooterSubsystem.stop();
 	}
 
 	protected void interrupted() {
