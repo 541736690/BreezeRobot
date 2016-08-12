@@ -6,9 +6,6 @@ import org.usfirst.frc.team9036.robot.RobotMap;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class BallShooterCommand extends Command {
 
 	public BallShooterCommand() {

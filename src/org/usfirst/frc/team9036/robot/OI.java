@@ -2,11 +2,8 @@ package org.usfirst.frc.team9036.robot;
 
 import org.usfirst.frc.team9036.robot.commands.drive.GyroAbsoluteRotateCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.GyroRotateCommand;
-import org.usfirst.frc.team9036.robot.commands.drive.ReverseDriveDirectionCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.VisionAutoAimCommand;
 import org.usfirst.frc.team9036.robot.commands.shooter.BallShooterCommand;
-import org.usfirst.frc.team9036.robot.commands.shooter.BallShooterCommandGroup;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -14,8 +11,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	Joystick mainJoystick;
 	Joystick shootJoystick;
-
-	Button gyroTurningButton;
 	
 	Button forwardTurningButton;
 	Button backwardTurningButton;
@@ -33,7 +28,6 @@ public class OI {
 		shootJoystick = new Joystick(RobotMap.ShooterJoystickPort);
 
 		// Main Joystick Button
-		gyroTurningButton = new JoystickButton(mainJoystick, RobotMap.GyroTurningButtonID);
 		forwardTurningButton = new JoystickButton(mainJoystick, RobotMap.ForwardTurningButtonID);
 		backwardTurningButton = new JoystickButton(mainJoystick, RobotMap.BackwardTurningButtonID);
 		leftTurningButton = new JoystickButton(mainJoystick, RobotMap.LeftTurningButtonID);
@@ -53,7 +47,6 @@ public class OI {
 		rightTurningButton.whileHeld(new GyroRotateCommand(90));
 		
 		// Shooter Button Command
-		gyroTurningButton.whenPressed(new ReverseDriveDirectionCommand()); // TODO: Remove Test Button
 		ballAutoAimButton.whileHeld(new VisionAutoAimCommand());
 		leftShooterTurningButton.whileHeld(new GyroRotateCommand(-60));
 		rightShooterTurningButton.whileHeld(new GyroRotateCommand(60));

@@ -7,9 +7,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class BallShooterPrepareCommand extends Command {
 
 	boolean _isFin;

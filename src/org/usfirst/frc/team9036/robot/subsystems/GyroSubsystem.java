@@ -1,7 +1,5 @@
 package org.usfirst.frc.team9036.robot.subsystems;
 
-import org.usfirst.frc.team9036.robot.commands.GyroDebugCommand;
-
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -20,7 +18,6 @@ public class GyroSubsystem extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new GyroDebugCommand());
 	}
 
 	public double getAngle() {

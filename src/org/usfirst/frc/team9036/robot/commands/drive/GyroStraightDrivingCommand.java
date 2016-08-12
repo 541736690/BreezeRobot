@@ -43,6 +43,7 @@ public class GyroStraightDrivingCommand extends Command {
     }
     
     protected void end() {
+    	Robot.driveSubsystem.stop();
     }
     
     protected void interrupted() {

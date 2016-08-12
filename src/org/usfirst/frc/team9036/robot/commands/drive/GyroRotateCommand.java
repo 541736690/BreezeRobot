@@ -14,8 +14,7 @@ public class GyroRotateCommand extends GyroTurningCommand {
 		double currentAngle = Robot.gyroSubsystem.getAngle();
 		double __lAngle = GyroTurningCommand.getLowerBound(currentAngle, currentAngle + targetAngle),
 				__rAngle = GyroTurningCommand.getUpperBound(currentAngle, currentAngle + targetAngle);
-
-		SmartDashboard.putNumber("currenAngle", currentAngle);
+		
 		if (currentAngle - __lAngle <= __rAngle - currentAngle) {
 			direction = 1;
 			finalAngle = __lAngle;

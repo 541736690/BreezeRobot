@@ -12,14 +12,9 @@ public class Chooser {
 	public Chooser() {
 		chooser = new SendableChooser();
 		
-		// Add autonomous commands here
 		chooser.addDefault("什么也不干", null);
-		chooser.addObject("跨越障碍并面向 60°", new CrossAndRotate());
-		// chooser.addObject("另一个指令", new Command1());
-		// chooser.addObject("另一个指令", new Command1());
-		// chooser.addObject("另一个指令", new Command1());
-		// chooser.addObject("另一个指令", new Command1());
-		// chooser.addObject("另一个指令", new Command1());
+		chooser.addObject("慢速跨越障碍", new SlowCross());
+		chooser.addObject("快速跨越障碍", new FastCross());
 		
 		SmartDashboard.putData("Auto selector", chooser);
 	}
@@ -27,7 +22,12 @@ public class Chooser {
 	public void run() {
 		autonomousCommand = (Command) chooser.getSelected();
 		
-		 if (autonomousCommand != null)
-			 autonomousCommand.start();
+		if (autonomousCommand != null)
+			autonomousCommand.start();
+	}
+	
+	public void cancel() {
+		if (autonomousCommand != null)
+			autonomousCommand.cancel();
 	}
 }
