@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class CrossAndRotate extends CommandGroup {
     
     public CrossAndRotate() {
-        addSequential(new GyroStraightDrivingCommand(1, 5));
+        addSequential(new GyroStraightDrivingCommand(0.4, 10));
         addSequential(new GyroRotateCommand(60));
     }
 }
