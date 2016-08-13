@@ -1,6 +1,6 @@
 # BreezeRobot
 
-[![Build Status](https://travis-ci.com/ZodiacEFZ/BreezeRobot.svg)](https://travis-ci.com/ZodiacEFZ/BreezeRobot)
+[![Build Status](https://travis-ci.org/ZodiacEFZ/BreezeRobot.svg?branch=master)](https://travis-ci.org/ZodiacEFZ/BreezeRobot)
 
 This is the robot project for FRC 2016 Stronghold.
 
