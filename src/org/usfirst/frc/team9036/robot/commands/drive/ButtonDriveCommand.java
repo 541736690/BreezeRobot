@@ -19,7 +19,7 @@ public class ButtonDriveCommand extends Command {
 		boolean isLeftHeld = Robot.oi.getMainButton(RobotMap.LeftDriveButtonID);
 		boolean isRightHeld = Robot.oi.getMainButton(RobotMap.RightDriveButtonID);
 		
-		/*
+		
 		double mode = Robot.oi.getMainPOV(RobotMap.DriveShiftPOV);
 		
 		double shift;
@@ -31,10 +31,10 @@ public class ButtonDriveCommand extends Command {
 		} else {
 			shift = 0.7;
 		}
-		*/
+		
 		
 		double __speed = ((Robot.oi.getMainAxis(RobotMap.DriveLeftAxis) - Robot.oi.getMainAxis(RobotMap.DriveRightAxis))
-				* RobotMap.DriveButtonMaxSpeed
+				* RobotMap.DriveButtonMaxSpeed * shift
 				+ Robot.oi.getShootAxis(RobotMap.DriveSlightSpeedAxis) 
 				* RobotMap.ShootAdjustSpeed);
 		double __curve = ((isLeftHeld ? -1 : 0) + (isRightHeld ? 1 : 0)) * RobotMap.DriveButtonMaxCurve 

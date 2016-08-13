@@ -14,7 +14,7 @@ public class RobotMap {
 
 	// Motor Settings
 	public static final double LeftBallShooterMotorSpeed = 1;
-	public static final double RightBallShooterMotorSpeed = -1;
+	public static final double RightBallShooterMotorSpeed = -0.95;
 	public static final double BallArmMotorSpeed = 1.0;
 	public static final double BallCollectorMotorSpeed = -1; 
 
