@@ -15,11 +15,10 @@ public class VisionAutoAimCommand extends Command {
 
 	public VisionAutoAimCommand() {
 		requires(Robot.driveSubsystem);
+		visionTable = NetworkTable.getTable("vision");
 	}
 
 	protected void initialize() {
-		visionTable = NetworkTable.getTable("vision");
-		visionTable.putNumber("manual_exposure", RobotMap.VisionCommandEnabled);
 		visionTable.putNumber("auto_enabled", RobotMap.VisionCommandEnabled);
 	}
 
@@ -45,7 +44,6 @@ public class VisionAutoAimCommand extends Command {
 	protected void end() {
 		Robot.driveSubsystem.stop();
 
-		visionTable.putNumber("manual_exposure", RobotMap.VisionCommandDisabled);
 		visionTable.putNumber("auto_enabled", RobotMap.VisionCommandDisabled);
 		visionTable.putNumber("robotdrive_status", RobotMap.VisionCommandDisabled);
 	}

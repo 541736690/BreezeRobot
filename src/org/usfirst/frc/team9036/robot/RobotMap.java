@@ -25,7 +25,7 @@ public class RobotMap {
 													
 	public static double DriveButtonMaxCurve = 0.9; 
 	public static double ShootAdjustSpeed = 0.7;
-	public static double ShootAdjustCurve = 0.5;
+	public static double ShootAdjustCurve = 0.7;
 	
 	
 	// Gyro Drive Settings
@@ -37,8 +37,8 @@ public class RobotMap {
 	public static final double GyroStraightRotateTolerance = 1;
 
 	// Vision Drive Settings
-	public static final double VisionTolerance = 0.02;
-	public static final double VisionSpeed = 0.4;
+	public static final double VisionTolerance = 0.002;
+	public static final double VisionSpeed = 0.6;
 
 	// Joystick Settings
 	public static final int DriverJoystickPort = 0;
@@ -69,6 +69,7 @@ public class RobotMap {
 	public static final int BallAutoAimButtonID = 1;
 	public static final int LeftShooterTurningButtonID = 3;
 	public static final int RightShooterTurningButtonID = 2;
+	public static final int BallExposureButtonId = 4;
 
 	// Shooter Joystick Axis
 	public static final int BallShootererAdjustingAxis = 9;

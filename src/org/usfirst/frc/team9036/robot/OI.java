@@ -1,5 +1,6 @@
 package org.usfirst.frc.team9036.robot;
 
+import org.usfirst.frc.team9036.robot.commands.VisionExposureCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.GyroAbsoluteRotateCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.GyroRotateCommand;
 import org.usfirst.frc.team9036.robot.commands.drive.VisionAutoAimCommand;
@@ -21,6 +22,7 @@ public class OI {
 	Button ballAutoAimButton;
 	Button ballShooterLeftButton;
 	Button ballShooterRightButton;
+	Button ballExposureButton;
 	
 	public OI() {
 		// Initialize Joysticks
@@ -39,7 +41,7 @@ public class OI {
 		rightShooterTurningButton = new JoystickButton(shootJoystick, RobotMap.RightShooterTurningButtonID);
 		ballShooterLeftButton = new JoystickButton(shootJoystick, RobotMap.LeftBallShooterButtonID);
 		ballShooterRightButton = new JoystickButton(shootJoystick, RobotMap.RightBallShooterButtonID);
-		
+		ballExposureButton = new JoystickButton(shootJoystick, RobotMap.BallExposureButtonId);
 		// Main Button Command
 		forwardTurningButton.whileHeld(new GyroAbsoluteRotateCommand(0));
 		backwardTurningButton.whileHeld(new GyroAbsoluteRotateCommand(180));
@@ -50,9 +52,9 @@ public class OI {
 		ballAutoAimButton.whileHeld(new VisionAutoAimCommand());
 		leftShooterTurningButton.whileHeld(new GyroRotateCommand(-60));
 		rightShooterTurningButton.whileHeld(new GyroRotateCommand(60));
-		ballAutoAimButton.whileHeld(new VisionAutoAimCommand());
 		ballShooterLeftButton.whileHeld(new BallShooterCommand());
 		ballShooterRightButton.whileHeld(new BallShooterCommand());
+		ballExposureButton.whileHeld(new VisionExposureCommand());
 	}
 
 	public boolean getMainButton(int button) {
