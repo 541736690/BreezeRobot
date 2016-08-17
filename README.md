@@ -16,7 +16,6 @@ Introduction in Chinese:
 * 支持自动阶段指令选择。
 * 模块化强，事件驱动，流畅运行。
 * 接入 Travis CI，云端自动构建代码。
-* 我不会吹牛，看完代码你就知道这个程序多牛逼。
 
 ## License
 
